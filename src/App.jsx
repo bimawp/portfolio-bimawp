@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Skill from './components/Skill'; // Pastikan import komponen Skill
+// Trigger redeploy
 
 function App() {
   return (
