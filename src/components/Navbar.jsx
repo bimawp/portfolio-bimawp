@@ -1,34 +1,73 @@
+import React from 'react';
 import { Link } from 'react-scroll';
 
 export default function Navbar() {
   return (
-    <nav
-      className="bg-gray-800 shadow-md text-gray-100 py-4 fixed w-full top-0 z-50 font-poppins"
-      aria-label="Navigasi utama"
-    >
-      <div className="container mx-auto flex justify-between items-center px-6">
+    <nav className="bg-white shadow-md py-4 fixed w-full top-0 z-50" role="navigation" aria-label="Navigasi utama">
+      <div className="container mx-auto flex justify-between items-center px-4">
         <a
           href="#hero"
-          className="font-bold text-2xl tracking-wide text-gray-200 hover:scale-105 transition-transform duration-300"
-          title="Beranda"
+          className="text-xl font-bold hover:text-green-400 transition-colors"
+          title="Kembali ke Beranda"
         >
-          Bima WP
+          Bima Wiryadi Praja
         </a>
-        <ul className="flex gap-6 text-base font-medium">
-          {['hero', 'about', 'projects', 'blog', 'contact'].map((sec) => (
-            <li key={sec}>
-              <Link
-                to={sec}
-                smooth={true}
-                duration={500}
-                offset={-80}
-                className="hover:text-gray-300 transition-colors duration-200 cursor-pointer"
-                title={`Menuju ke bagian ${sec}`}
-              >
-                {sec.charAt(0).toUpperCase() + sec.slice(1)}
-              </Link>
-            </li>
-          ))}
+        <ul className="flex space-x-6 text-sm md:text-base font-medium">
+          <li>
+            <Link
+              to="hero"
+              smooth
+              duration={500}
+              className="cursor-pointer hover:text-green-400 transition-colors"
+              title="Menuju beranda"
+            >
+              Beranda
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="about"
+              smooth
+              duration={500}
+              className="cursor-pointer hover:text-green-400 transition-colors"
+              title="Tentang Saya"
+            >
+              Tentang
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="blog"
+              smooth
+              duration={500}
+              className="cursor-pointer hover:text-green-400 transition-colors"
+              title="Baca Blog Saya"
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="projects"
+              smooth
+              duration={500}
+              className="cursor-pointer hover:text-green-400 transition-colors"
+              title="Lihat Proyek Saya"
+            >
+              Project
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="contact"
+              smooth
+              duration={500}
+              className="cursor-pointer hover:text-green-400 transition-colors"
+              title="Hubungi Saya"
+            >
+              Kontak
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
