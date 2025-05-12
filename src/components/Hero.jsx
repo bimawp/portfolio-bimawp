@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
-    <section id="hero" className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+    <section id="hero" className="relative w-full h-screen overflow-hidden flex items-center justify-center" aria-label="Profil Utama">
       <video
         className="absolute inset-0 w-full h-full object-cover filter grayscale"
-        autoPlay muted loop playsInline
+        autoPlay
+        muted
+        loop
+        playsInline
+        title="Latar belakang video profil"
       >
         <source src="/bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-gray-900 opacity-70"></div>
-      <div className="relative z-10 flex items-center justify-center h-full px-4">
+      <main className="relative z-10 flex items-center justify-center h-full px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
           <motion.img
             src="/profil1.jpg"
-            alt="Foto Profil Bima Wiryadi Praja"
+            alt="Foto Bima Wiryadi Praja"
             initial={{ x: -60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
@@ -36,11 +41,11 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-sm md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0"
             >
-              Saya adalah mahasiswa Sistem Informasi di Sekolah Tinggi Manajemen Informatika dan Komputer (STMIK) Mardira Indonesia, dengan minat mendalam pada pengembangan web dan teknologi.
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam pengembangan web & teknologi.
             </motion.p>
           </div>
         </div>
-      </div>
+      </main>
     </section>
   );
 }
