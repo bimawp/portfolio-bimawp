@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AnimatePresence } from 'framer-motion';
 import App from './App';
-import './index.css';
+import './index.css'; // Pastikan file CSS diimpor di sini
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AnimatePresence>
-      <App />
-    </AnimatePresence>
+    <App />
   </React.StrictMode>
 );
