@@ -1,7 +1,0 @@
-# Folder dan file yang tidak perlu diupload ke GitHub
-node_modules/
-build/
-.env
-.DS_Store
-*.log
-
