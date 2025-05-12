@@ -8,5 +8,5 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "yarn install,pnpm install,npm install, or bun install",
-  "nodeVersion": "18.x"
+
 }
