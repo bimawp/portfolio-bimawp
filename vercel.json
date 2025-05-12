@@ -4,9 +4,9 @@
       "CI": "false"
     }
   },
-  "buildCommand": "npx vite build",
+  "buildCommand": "npm run build or vite build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "installCommand": "npm install",
+  "installCommand": "yarn install,pnpm install,npm install, or bun install",
   "nodeVersion": "18.x"
 }
