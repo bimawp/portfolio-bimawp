@@ -3,5 +3,10 @@
     "env": {
       "CI": "false"
     }
-  }
+  },
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "npm install",
+  "nodeVersion": "18.x"
 }
