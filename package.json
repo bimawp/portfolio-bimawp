@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "npm run dev",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +24,6 @@
     "vite": "^6.3.5"
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   }
 }
