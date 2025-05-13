@@ -1,5 +1,5 @@
 import { FaReact, FaLaravel, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
-export default function Skills() {
+export default function Skill() {
   const skills = [
     { name: 'React', icon: <FaReact size={40} className="text-gray-600" /> },
     { name: 'Laravel 10', icon: <FaLaravel size={40} className="text-gray-600" /> },
