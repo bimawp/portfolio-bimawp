@@ -11,6 +11,8 @@ import Tugas from './components/Tugas';  // Pastikan sudah di-import
 import TaskDetail from './components/TaskDetail';  // Pastikan sudah di-import
 import Footer from './components/Footer';
 
+import Article from './components/Article';
+
 
 export default function App() {
   return (
@@ -31,6 +33,7 @@ export default function App() {
           } />
           <Route path="/tugas" element={<Tugas />} /> {/* Halaman daftar tugas */}
           <Route path="/tugas/:id" element={<TaskDetail />} /> {/* Halaman detail tugas */}
+          <Route path="/article/:slug" element={<Article />} /> {/* Tambahkan ini */}
         </Routes>
       </div>
     </Router>

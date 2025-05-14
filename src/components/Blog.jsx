@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 
 export default function Blog() {
   const articles = [
-    { slug: 'artikel-1', title: 'Artikel 1', content: 'Cuplikan...' },
-    { slug: 'artikel-2', title: 'Artikel 2', content: 'Cuplikan...' },
+    { slug: 'artikel-1', title: 'Artikel 1', content: 'Portfolio online sangat penting untuk menunjukkan karya kita sebagai web developer...' },
+    { slug: 'artikel-2', title: 'Artikel 2', content: 'Tailwind CSS adalah framework utility-first yang membantu developer membangun UI dengan cepat...' },
+    { slug: 'artikel-3', title: 'Artikel 3', content: 'Framer Motion adalah pustaka animasi untuk React yang powerful namun mudah digunakan...' },
   ];
 
   return (
@@ -23,9 +24,9 @@ export default function Blog() {
             <h3 className="text-2xl font-semibold">{a.title}</h3>
             <p className="mt-4 text-gray-700">{a.content}</p>
             <Link
-              to={`/blog/${a.slug}`}
+              to={`/article/${a.slug}`}
               className="mt-6 inline-block px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
-            >
+>
               Baca Selengkapnya →
             </Link>
           </motion.article>
