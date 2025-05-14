@@ -17,10 +17,16 @@ export default function About() {
         </h2>
         <article className="text-lg space-y-4">
           <p>
-            Halo, saya <strong>Bima Wiryadi Praja</strong>, mahasiswa Sistem Informasi di STMIK Mardira Indonesia yang memiliki minat besar dalam dunia pengembangan web dan teknologi informasi.
+            Halo, saya <strong>Bima Wiryadi Praja</strong>, seorang Mahasiswa juga pengembang web yang selalu bersemangat dengan latar belakang di bidang Sistem Informasi. Saya memiliki pengalaman dalam mengembangkan aplikasi web menggunakan React.js, Next.js, Laravel dan Tailwind CSS.
           </p>
           <p>
-            Dalam perjalanan akademik saya, saya membekali diri dengan keterampilan teknis, terutama dalam front-end menggunakan React.js, Next.js, dan Tailwind CSS.
+            Saya selalu mencari solusi kreatif untuk masalah yang kompleks, dan saya percaya bahwa teknologi dapat menciptakan pengalaman yang berdampak positif bagi penggunanya.
+          </p>
+          <p>
+            Saya senang bekerja di proyek yang menantang dan berusaha untuk terus belajar dan berkembang di dunia teknologi. Selain itu, saya juga tertarik pada pengelolaan database dan pengembangan aplikasi full-stack. Saya percaya bahwa dengan pendekatan yang tepat, teknologi dapat memberikan solusi inovatif yang bermanfaat bagi masyarakat.
+          </p>
+          <p>
+            Ketika tidak bekerja, saya menikmati mengeksplorasi tren teknologi terbaru dan membangun proyek-proyek pribadi yang memperkaya keterampilan saya. Saya selalu terbuka untuk kolaborasi dan kesempatan untuk berkembang lebih jauh dalam dunia pengembangan web.
           </p>
         </article>
         <p className="text-xl text-gray-300">
