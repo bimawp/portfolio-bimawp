@@ -9,7 +9,7 @@ export default function Projects() {
             <picture>
               <source srcSet="projek1.webp" type="image/webp" />
               <img
-                src="projek1.jpg"
+                src="projek1.webp"
                 alt="Tampilan Website MA As Shiroji"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
@@ -61,7 +61,7 @@ export default function Projects() {
             <picture>
               <source srcSet="projek3.webp" type="image/webp" />
               <img
-                src="projek3.jpg"
+                src="projek3.webp"
                 alt="Dashboard stok buku CV Al Karomah"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
