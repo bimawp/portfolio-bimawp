@@ -1,15 +1,12 @@
-'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollLinks = [
     { label: 'Beranda', to: 'hero' },
@@ -19,96 +16,73 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
+const handleNavClick = (id) => {
+  setIsOpen(false);
+  if (location.pathname !== '/') {
+    // Navigasi ke halaman utama dengan query scroll
+    navigate(`/?scrollTo=${id}`);
+  } else {
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+    }
+  }
+};
+
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50 top-0" role="navigation" aria-label="Navigasi utama">
+    <nav className="bg-white shadow-md fixed w-full z-50 top-0">
       <div className="container mx-auto flex justify-between items-center px-4 py-4">
-        <Link
-          href="/"
+        <RouterLink
+          to="/"
           className="text-xl font-bold hover:text-green-400 transition-colors"
-          title="Kembali ke Beranda"
         >
           Bima Wiryadi Praja
-        </Link>
+        </RouterLink>
 
-        <button
-          onClick={toggleMenu}
-          className="md:hidden focus:outline-none"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        <ul className="hidden md:flex space-x-6 text-sm md:text-base font-medium">
+        <ul className="hidden md:flex space-x-6 font-medium">
           {scrollLinks.map(({ label, to }) => (
             <li key={to}>
-              {isHomePage ? (
-                <a
-                  href={`#${to}`}
-                  className="cursor-pointer hover:text-green-400 transition-colors"
-                  title={`Menuju ${label}`}
-                >
-                  {label}
-                </a>
-              ) : (
-                <Link
-                  href={`/#${to}`}
-                  className="cursor-pointer hover:text-green-400 transition-colors"
-                  title={`Kembali ke ${label}`}
-                >
-                  {label}
-                </Link>
-              )}
+              <button
+                onClick={() => handleNavClick(to)}
+                className="hover:text-green-400 transition-colors"
+              >
+                {label}
+              </button>
             </li>
           ))}
           <li>
-            <Link
-              href="/tugas"
-              className="hover:text-green-400 transition-colors"
-              title="Menuju halaman tugas"
-            >
+            <RouterLink to="/tugas" className="hover:text-green-400 transition-colors">
               Tugas
-            </Link>
+            </RouterLink>
           </li>
         </ul>
       </div>
 
-      {/* Menu Mobile */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-md px-4 py-4">
           <ul className="flex flex-col space-y-4 font-medium text-gray-700">
             {scrollLinks.map(({ label, to }) => (
               <li key={to}>
-                {isHomePage ? (
-                  <a
-                    href={`#${to}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block hover:text-green-400 transition-colors"
-                    title={`Menuju ${label}`}
-                  >
-                    {label}
-                  </a>
-                ) : (
-                  <Link
-                    href={`/#${to}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block hover:text-green-400 transition-colors"
-                    title={`Kembali ke ${label}`}
-                  >
-                    {label}
-                  </Link>
-                )}
+                <button
+                  onClick={() => handleNavClick(to)}
+                  className="hover:text-green-400 transition-colors"
+                >
+                  {label}
+                </button>
               </li>
             ))}
             <li>
-              <Link
-                href="/tugas"
+              <RouterLink
+                to="/tugas"
                 onClick={() => setIsOpen(false)}
-                className="block hover:text-green-400 transition-colors"
-                title="Menuju halaman tugas"
+                className="hover:text-green-400 transition-colors"
               >
                 Tugas
-              </Link>
+              </RouterLink>
             </li>
           </ul>
         </div>
