@@ -22,13 +22,11 @@ export default defineConfig({
     }),
   ],
   base: './', // Pastikan path relatif
-  build: {
-    target: 'esnext', // Gunakan target JS modern
+    build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor'; // Pisahkan kode vendor
+        manualChunks: {
+          vendor: ['react', 'react-dom'], // Misalnya, pisahkan dependensi besar
           }
         },
       },
