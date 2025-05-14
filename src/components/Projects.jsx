@@ -7,7 +7,7 @@ export default function Projects() {
           {/* Proyek 1 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <img
-              src="projek1.jpg"
+              src="/projek1.jpg" // Make sure the images are in the public folder
               alt="Tampilan Website MA As Shiroji"
               loading="lazy"
               className="w-full h-48 object-cover rounded-lg mb-4"
@@ -30,7 +30,7 @@ export default function Projects() {
           {/* Proyek 2 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <img
-              src="projek2.jpg"
+              src="/projek2.jpg" // Same as above, ensure correct file path
               alt="Aplikasi AppSheet dari PT GAP"
               loading="lazy"
               className="w-full h-48 object-cover rounded-lg mb-4"
@@ -53,7 +53,7 @@ export default function Projects() {
           {/* Proyek 3 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <img
-              src="projek3.jpg"
+              src="/projek3.jpg" // Ensure correct path for this image
               alt="Dashboard stok buku CV Al Karomah"
               loading="lazy"
               className="w-full h-48 object-cover rounded-lg mb-4"

@@ -10,7 +10,6 @@ import Skill from './components/Skill';
 import Tugas from './components/Tugas';  // Pastikan sudah di-import
 import TaskDetail from './components/TaskDetail';  // Pastikan sudah di-import
 import Footer from './components/Footer';
-
 import Article from './components/Article';
 
 
