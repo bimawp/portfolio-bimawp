@@ -1,4 +1,3 @@
-// src/components/Blog.jsx
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -25,8 +24,9 @@ export default function Blog() {
             <p className="mt-4 text-gray-700">{a.content}</p>
             <Link
               to={`/article/${a.slug}`}
+              aria-label={`Baca selengkapnya tentang ${a.title}`}
               className="mt-6 inline-block px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
->
+            >
               Baca Selengkapnya →
             </Link>
           </motion.article>
