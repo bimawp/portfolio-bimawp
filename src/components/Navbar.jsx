@@ -21,13 +21,13 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md fixed w-full z-50 top-0" role="navigation" aria-label="Navigasi utama">
       <div className="container mx-auto flex justify-between items-center px-4 py-4">
-        <a
-          href="#hero"
+        <RouterLink
+          to="/"
           className="text-xl font-bold hover:text-green-400 transition-colors"
           title="Kembali ke Beranda"
         >
           Bima Wiryadi Praja
-        </a>
+        </RouterLink>
 
         {/* Tombol hamburger mobile */}
         <button
@@ -48,6 +48,7 @@ export default function Navbar() {
                   to={to}
                   smooth
                   duration={500}
+                  offset={-80}
                   className="cursor-pointer hover:text-green-400 transition-colors"
                   title={`Menuju ${label}`}
                 >
@@ -64,7 +65,6 @@ export default function Navbar() {
               )}
             </li>
           ))}
-          {/* Menu Tugas di navbar */}
           <li>
             <RouterLink
               to="/tugas"
@@ -88,6 +88,7 @@ export default function Navbar() {
                     to={to}
                     smooth
                     duration={500}
+                    offset={-80}
                     onClick={() => setIsOpen(false)}
                     className="cursor-pointer block hover:text-green-400 transition-colors"
                     title={`Menuju ${label}`}
