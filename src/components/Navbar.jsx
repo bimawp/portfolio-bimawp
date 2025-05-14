@@ -39,9 +39,13 @@ const handleNavClick = (id) => {
           Bima Wiryadi Praja
         </RouterLink>
 
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="md:hidden" 
+            aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
 
         <ul className="hidden md:flex space-x-6 font-medium">
           {scrollLinks.map(({ label, to }) => (
