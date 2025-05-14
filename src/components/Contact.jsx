@@ -39,7 +39,7 @@ export default function Contact() {
             title="Lihat lokasi saya di Google Maps"
           >
             Perumahan Davira Indah Blok C-8<br />
-            Desa Sindangsari, Kecamatan Banyuresmi<br />
+            Desa Sindangsari, Kecamatan Leuwigoong<br />
             Kabupaten Garut, Provinsi Jawa Barat, Indonesia
           </a>
           <p className="mt-4 text-gray-600">Klik alamat di atas untuk membuka Google Maps.</p>

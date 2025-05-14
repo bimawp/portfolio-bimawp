@@ -1,11 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bimawiryadipraja.my.id/</loc>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://namadomainkamu.my.id</loc>
-    <priority>0.8</priority>
+    <loc>https://bimawiryadipraja.my.id/#about</loc>
+  </url>
+  <url>
+    <loc>https://bimawiryadipraja.my.id/#projects</loc>
+  </url>
+  <url>
+    <loc>https://bimawiryadipraja.my.id/#blog</loc>
+  </url>
+  <url>
+    <loc>https://bimawiryadipraja.my.id/#contact</loc>
   </url>
 </urlset>

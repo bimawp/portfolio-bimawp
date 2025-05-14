@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
           <motion.img
             src="/profil1.jpg"
-            alt="Foto Bima Wiryadi Praja"
+            alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
             initial={{ x: -60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
