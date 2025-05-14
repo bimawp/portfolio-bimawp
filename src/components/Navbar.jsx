@@ -43,26 +43,13 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-6 text-sm md:text-base font-medium">
           {scrollLinks.map(({ label, to }) => (
             <li key={to}>
-              {isHomePage ? (
-                <ScrollLink
-                  to={to}
-                  smooth
-                  duration={500}
-                  offset={-80}
-                  className="cursor-pointer hover:text-green-400 transition-colors"
-                  title={`Menuju ${label}`}
-                >
-                  {label}
-                </ScrollLink>
-              ) : (
-                <RouterLink
-                  to="/"
-                  className="hover:text-green-400 transition-colors"
-                  title={`Menuju Beranda untuk ${label}`}
-                >
-                  {label}
-                </RouterLink>
-              )}
+              <a
+                href={`#${to}`}
+                className="cursor-pointer hover:text-green-400 transition-colors"
+                title={`Menuju ${label}`}
+              >
+                {label}
+              </a>
             </li>
           ))}
           <li>
@@ -83,28 +70,14 @@ export default function Navbar() {
           <ul className="flex flex-col space-y-4 font-medium text-gray-700">
             {scrollLinks.map(({ label, to }) => (
               <li key={to}>
-                {isHomePage ? (
-                  <ScrollLink
-                    to={to}
-                    smooth
-                    duration={500}
-                    offset={-80}
-                    onClick={() => setIsOpen(false)}
-                    className="cursor-pointer block hover:text-green-400 transition-colors"
-                    title={`Menuju ${label}`}
-                  >
-                    {label}
-                  </ScrollLink>
-                ) : (
-                  <RouterLink
-                    to="/"
-                    onClick={() => setIsOpen(false)}
-                    className="block hover:text-green-400 transition-colors"
-                    title={`Menuju Beranda untuk ${label}`}
-                  >
-                    {label}
-                  </RouterLink>
-                )}
+                <a
+                  href={`#${to}`}
+                  className="cursor-pointer block hover:text-green-400 transition-colors"
+                  title={`Menuju ${label}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </a>
               </li>
             ))}
             <li>
