@@ -6,16 +6,15 @@ export default function Projects() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Proyek 1 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-            <picture>
-              <source srcSet="/projek1.webp" type="image/webp" />
-                <img src="/projek1.webp"  />
-              <img
-                src="projek1.webp"
-                alt="Tampilan Website MA As Shiroji"
-                loading="lazy"
-                className="w-full h-auto object-cover rounded-lg mb-4"
-              />
-            </picture>
+          <picture>
+            <source srcSet="/projek1.webp" type="image/webp" />
+            <img
+              src="/projek1.webp"
+              alt="Tampilan Website MA As Shiroji"
+              loading="lazy"
+              className="w-full h-auto object-cover rounded-lg mb-4"
+  />
+</picture>
             <h3 className="text-2xl font-semibold">Proyek 1</h3>
             <p className="text-gray-600 mb-4">
               Website MA As Shiroji menyajikan informasi akademik dan non-akademik, termasuk publikasi berita, PPDB online, galeri kegiatan, kalender akademik, dan profil sekolah, dengan tampilan responsif dan mudah diakses di berbagai perangkat.
@@ -35,10 +34,9 @@ export default function Projects() {
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <picture>
               <source srcSet="/projek2.webp" type="image/webp" />
-                <img src="/projek2.webp"  />
               <img
-                src="projek2.webp"
-                alt="Aplikasi AppSheet dari PT GAP"
+                src="/projek1=2.webp"
+                alt="Aplikasi Appsheet dari PT GAP"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
               />
@@ -62,10 +60,9 @@ export default function Projects() {
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <picture>
               <source srcSet="/projek3.webp" type="image/webp" />
-                <img src="/projek3.webp"  />
               <img
-                src="projek3.webp"
-                alt="Dashboard stok buku CV Al Karomah"
+                src="/projek3.webp"
+                alt="Dashboard Stok Buku dari CV Al Karomah"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
               />
