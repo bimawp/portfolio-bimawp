@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden flex items-center justify-center" aria-label="Profil Utama">
+      {/* Video latar belakang */}
       <video
         className="absolute inset-0 w-full h-full object-cover filter grayscale"
         autoPlay
@@ -10,13 +11,20 @@ export default function Hero() {
         loop
         playsInline
         title="Latar belakang video profil"
+        preload="auto" // Menambahkan preload untuk memuat video secara otomatis
       >
         <source src="/bg.mp4" type="video/mp4" />
+        <source src="/bg.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
+
+      {/* Overlay gelap di atas video */}
       <div className="absolute inset-0 bg-gray-900 opacity-70"></div>
+
+      {/* Konten utama */}
       <main className="relative z-10 flex items-center justify-center h-full px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
+          {/* Foto Profil */}
           <motion.img
             src="/profil1.jpg"
             alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
