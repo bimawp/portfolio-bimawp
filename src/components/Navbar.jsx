@@ -43,8 +43,9 @@ const handleNavClick = (id) => {
             onClick={() => setIsOpen(!isOpen)} 
             className="md:hidden" 
             aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+            title={isOpen ? "Tutup menu" : "Buka menu"}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
           </button>
 
         <ul className="hidden md:flex space-x-6 font-medium">
