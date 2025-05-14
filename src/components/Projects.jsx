@@ -7,7 +7,8 @@ export default function Projects() {
           {/* Proyek 1 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <picture>
-              <source srcSet="projek1.webp" type="image/webp" />
+              <source srcSet="/projek1.webp" type="image/webp" />
+                <img src="/projek1.webp"  />
               <img
                 src="projek1.webp"
                 alt="Tampilan Website MA As Shiroji"
@@ -33,9 +34,10 @@ export default function Projects() {
           {/* Proyek 2 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <picture>
-              <source srcSet="projek2.webp" type="image/webp" />
+              <source srcSet="/projek2.webp" type="image/webp" />
+                <img src="/projek2.webp"  />
               <img
-                src="projek2.jpg"
+                src="projek2.webp"
                 alt="Aplikasi AppSheet dari PT GAP"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
@@ -59,7 +61,8 @@ export default function Projects() {
           {/* Proyek 3 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <picture>
-              <source srcSet="projek3.webp" type="image/webp" />
+              <source srcSet="/projek3.webp" type="image/webp" />
+                <img src="/projek3.webp"  />
               <img
                 src="projek3.webp"
                 alt="Dashboard stok buku CV Al Karomah"
