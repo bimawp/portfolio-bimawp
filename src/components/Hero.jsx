@@ -25,15 +25,16 @@ export default function Hero() {
       <main className="relative z-10 flex items-center justify-center h-full px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Foto Profil */}
-          <motion.img
-            src="/profil1.jpg"
-            alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-            initial={{ x: -60, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            whileHover={{ scale: 1.05 }}
-            className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover rounded-full shadow-xl border-4 border-gray-200"
-          />
+            <motion.img
+              src="/profil1.jpg"
+              alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
+              loading="lazy" // <--- Tambahan ini!
+              initial={{ x: -60, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.05 }}
+              className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover rounded-full shadow-xl border-4 border-gray-200"
+            />
           <div className="text-gray-100 text-center md:text-left px-2">
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
@@ -49,7 +50,7 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-sm md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0"
             >
-              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam pengembangan web & teknologi.
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam <strong>pengembangan web</strong> & <strong>teknologi digital</strong>.
             </motion.p>
           </div>
         </div>
