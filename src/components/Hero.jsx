@@ -68,6 +68,7 @@ export default function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1 }}
                 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg"
+              
               >
                 Bima Wiryadi Praja
               </motion.h1>
