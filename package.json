@@ -3,7 +3,7 @@
   "name": "react-portfolio-bimawp",
   "version": "0.0.0",
   "scripts": {
-  "fix-permission": "chmod +x node_modules/.bin/vite",
+
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
