@@ -47,31 +47,36 @@ export default function Article() {
       )
     },
     'artikel-3': {
-      title: 'Mengenal Framer Motion untuk Animasi di React',
-      date: '16 Mei 2025',
-      content: (
-        <>
-          <p>
-            Framer Motion adalah pustaka animasi untuk React yang powerful namun mudah digunakan. Kamu bisa membuat animasi masuk, keluar, hover, bahkan gesture hanya dengan beberapa baris kode.
-          </p>
-          <p>
-            Untuk memulai, cukup instal dengan <code>npm install framer-motion</code>, lalu bungkus elemen dengan <code>&lt;motion.div&gt;</code> dan tambahkan properti seperti <code>initial</code>, <code>animate</code>, dan <code>transition</code>.
-          </p>
-          <p>
-            Contoh penggunaan animasi sederhana:
-            <br />
-            <code>
-              &lt;motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} /&gt;
-            </code>
-          </p>
-          <p>
-            Dengan Framer Motion, kamu bisa membuat website yang terasa lebih hidup dan interaktif.
-          </p>
-        </>
-      )
-    }
-  };
+  title: 'Mengenal Framer Motion untuk Animasi di React',
+  date: '16 Mei 2025',
+  content: (
+    <>
+      <p>
+        Framer Motion adalah pustaka animasi untuk React yang powerful namun mudah digunakan. Kamu bisa membuat animasi masuk, keluar, hover, bahkan gesture hanya dengan beberapa baris kode.
+      </p>
+      <p>
+        Untuk memulai, cukup instal dengan <code>npm install framer-motion</code>, lalu bungkus elemen dengan <code>{`<motion.div>`}</code> dan tambahkan properti seperti <code>initial</code>, <code>animate</code>, dan <code>transition</code>.
+      </p>
+      <p>
+        Contoh penggunaan animasi sederhana:
+      </p>
+      <pre>
+        <code>
+          {`<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} />`}
+        </code>
+      </pre>
+      <p>
+        Framer Motion juga mendukung animasi saat komponen muncul dan hilang dari DOM menggunakan <code>AnimatePresence</code>, serta transisi layout yang halus menggunakan <code>layout</code> prop.
+      </p>
+      <p>
+        Dengan Framer Motion, kamu bisa membuat website yang terasa lebih hidup dan interaktif tanpa perlu menulis CSS animasi manual.
+      </p>
+    </>
+  )
+}
 
+
+  };
   const article = articles[slug];
 
   if (!article) {
