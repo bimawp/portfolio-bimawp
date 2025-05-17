@@ -26,9 +26,12 @@ export default function Navbar() {
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
-          const yOffset = -NAVBAR_HEIGHT;
-          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
+          // Jika ingin lebih stabil, gunakan scroll-mt di section dan cukup pakai scrollIntoView:
+          el.scrollIntoView({ behavior: 'smooth' });
+          // Jika ingin tetap pakai offset manual:
+          // const yOffset = -NAVBAR_HEIGHT;
+          // const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          // window.scrollTo({ top: y, behavior: 'smooth' });
         }
       }, 200); // delay 200ms agar layout stabil setelah menu close
     }
@@ -44,14 +47,14 @@ export default function Navbar() {
           Bima Wiryadi Praja
         </RouterLink>
 
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden" 
-            aria-label={isOpen ? "Tutup menu" : "Buka menu"}
-            title={isOpen ? "Tutup menu" : "Buka menu"}
-          >
-            {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
-          </button>
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="md:hidden" 
+          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+          title={isOpen ? "Tutup menu" : "Buka menu"}
+        >
+          {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+        </button>
 
         <ul className="hidden md:flex space-x-6 font-medium">
           {scrollLinks.map(({ label, to }) => (
