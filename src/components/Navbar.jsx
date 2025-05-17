@@ -23,12 +23,14 @@ export default function Navbar() {
     if (location.pathname !== '/') {
       navigate(`/?scrollTo=${id}`);
     } else {
-      const el = document.getElementById(id);
-      if (el) {
-        const yOffset = -NAVBAR_HEIGHT;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const yOffset = -NAVBAR_HEIGHT;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 200); // delay 200ms agar layout stabil setelah menu close
     }
   };
 
