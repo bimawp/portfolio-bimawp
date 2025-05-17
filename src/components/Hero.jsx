@@ -33,7 +33,7 @@ export default function Hero() {
 
       <section
         id="hero"
-        className="relative w-full h-screen overflow-hidden flex items-center justify-center"
+        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center"
         aria-label="Profil Utama"
       >
         {/* Video Latar Belakang */}
