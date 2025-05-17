@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import Head from "next/head";
+import { Helmet } from "react-helmet"; // Ganti Head dengan Helmet
 
 export default function Hero() {
   return (
     <>
       {/* Metadata dan Structured Data untuk SEO */}
-      <Head>
+      <Helmet>
         <title>Bima Wiryadi Praja – Mahasiswa Sistem Informasi</title>
         <meta name="description" content="Profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi STMIK Mardira Indonesia yang memiliki minat dalam pengembangan web dan teknologi digital." />
         <meta property="og:title" content="Bima Wiryadi Praja" />
@@ -29,7 +29,7 @@ export default function Hero() {
             })
           }}
         />
-      </Head>
+      </Helmet>
 
       <section
         id="hero"
