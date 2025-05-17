@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet"; // Ganti Head dengan Helmet
+import { Helmet } from "react-helmet"; 
 
 export default function Hero() {
   return (
     <>
       {/* Metadata dan Structured Data untuk SEO */}
       <Helmet>
-        <title>Bima Wiryadi Praja – Mahasiswa Sistem Informasi</title>
+        <title>Bima Wiryadi Praja | Mahasiswa Sistem Informasi</title>
         <meta name="description" content="Profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi STMIK Mardira Indonesia yang memiliki minat dalam pengembangan web dan teknologi digital." />
         <meta property="og:title" content="Bima Wiryadi Praja" />
         <meta property="og:description" content="Mahasiswa Sistem Informasi dengan minat dalam pengembangan web dan teknologi digital." />

@@ -20,7 +20,7 @@ export default defineConfig({
     //   },
     // }),
   ],
-  base: './', // Pastikan path relatif
+  base: '/', // ← GANTI ke '/' untuk deployment di Vercel
   build: {
     rollupOptions: {
       output: {
