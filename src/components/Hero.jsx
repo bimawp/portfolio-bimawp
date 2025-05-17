@@ -19,6 +19,7 @@ export default function Hero() {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Bima Wiryadi Praja",
+              "alternateName": "Bima WP",
               "jobTitle": "Mahasiswa Sistem Informasi",
               "description": "Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam pengembangan web dan teknologi digital.",
               "url": "https://www.bimawiryadipraja.my.id",
@@ -87,7 +88,8 @@ export default function Hero() {
               >
                 Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam{" "}
                 <strong>pengembangan web</strong> &{" "}
-                <strong>teknologi digital</strong>.
+                <strong>teknologi digital</strong>.<br />
+                Dikenal juga sebagai <strong>Bima WP</strong>.
               </motion.p>
             </div>
           </div>
