@@ -25,7 +25,7 @@ export default function Hero() {
               "url": "https://www.bimawiryadipraja.my.id",
               "image": "https://www.bimawiryadipraja.my.id/profil1.jpg",
               "sameAs": [
-                "https://www.linkedin.com/in/bimawiryadipraja"
+                "https://www.linkedin.com/in/bima-wirya-995430205 "
               ]
             })
           }}
