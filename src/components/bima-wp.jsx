@@ -4,7 +4,7 @@ export default function BimaWP() {
   return (
     <>
       <Head>
-        <title>Bima WP – Profil Lengkap</title>
+        <title>Bima WP – Bima Wiryadi Praja</title>
         <meta name="description" content="Halaman khusus untuk mengenal lebih dekat Bima Wiryadi Praja, yang dikenal juga sebagai Bima WP. Mahasiswa Sistem Informasi STMIK Mardira Indonesia." />
         <meta name="keywords" content="Bima WP, Bima Wiryadi, Bima Wiryadi Praja, Mahasiswa Sistem Informasi, Web Developer" />
         <link rel="canonical" href="https://www.bimawiryadipraja.my.id/bima-wp" />
