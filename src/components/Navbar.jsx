@@ -16,7 +16,7 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
-  const NAVBAR_HEIGHT = 64; // Ganti sesuai tinggi navbar kamu (px)
+  const NAVBAR_HEIGHT = 60; // Ganti sesuai tinggi navbar kamu (px)
 
   const handleNavClick = (id) => {
     setIsOpen(false);
