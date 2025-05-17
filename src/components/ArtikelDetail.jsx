@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function ArtikelDetail() {
   const { slug } = useParams();
@@ -10,8 +11,14 @@ export default function ArtikelDetail() {
   }, [url]);
 
   return (
-    <div className="p-10 text-center">
-      <p className="text-lg">Mengarahkan ke blog: <strong>{slug}</strong>...</p>
-    </div>
+    <>
+      <Helmet>
+        <title>Mengarahkan ke Blog – Bima Wiryadi Praja</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div className="p-10 text-center">
+        <p className="text-lg">Mengarahkan ke blog: <strong>{slug}</strong>...</p>
+      </div>
+    </>
   );
 }

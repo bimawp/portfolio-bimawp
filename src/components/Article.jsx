@@ -1,6 +1,7 @@
 // src/components/Article.jsx
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet'; // Tambahkan import Helmet
 
 export default function Article() {
   const { slug } = useParams();
@@ -9,6 +10,7 @@ export default function Article() {
     'artikel-1': {
       title: 'Cara Membuat Website Portfolio dengan React',
       date: '14 Mei 2025',
+      description: 'Panduan membuat website portfolio modern dengan React, Tailwind CSS, dan Framer Motion.',
       content: (
         <>
           <p>
@@ -29,6 +31,7 @@ export default function Article() {
     'artikel-2': {
       title: 'Mengapa Tailwind CSS Cocok untuk Developer Pemula',
       date: '15 Mei 2025',
+      description: 'Alasan mengapa Tailwind CSS sangat cocok untuk developer pemula dan tips penggunaannya.',
       content: (
         <>
           <p>
@@ -47,36 +50,36 @@ export default function Article() {
       )
     },
     'artikel-3': {
-  title: 'Mengenal Framer Motion untuk Animasi di React',
-  date: '16 Mei 2025',
-  content: (
-    <>
-      <p>
-        Framer Motion adalah pustaka animasi untuk React yang powerful namun mudah digunakan. Kamu bisa membuat animasi masuk, keluar, hover, bahkan gesture hanya dengan beberapa baris kode.
-      </p>
-      <p>
-        Untuk memulai, cukup instal dengan <code>npm install framer-motion</code>, lalu bungkus elemen dengan <code>{`<motion.div>`}</code> dan tambahkan properti seperti <code>initial</code>, <code>animate</code>, dan <code>transition</code>.
-      </p>
-      <p>
-        Contoh penggunaan animasi sederhana:
-      </p>
-      <pre>
-        <code>
-          {`<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} />`}
-        </code>
-      </pre>
-      <p>
-        Framer Motion juga mendukung animasi saat komponen muncul dan hilang dari DOM menggunakan <code>AnimatePresence</code>, serta transisi layout yang halus menggunakan <code>layout</code> prop.
-      </p>
-      <p>
-        Dengan Framer Motion, kamu bisa membuat website yang terasa lebih hidup dan interaktif tanpa perlu menulis CSS animasi manual.
-      </p>
-    </>
-  )
-}
-
-
+      title: 'Mengenal Framer Motion untuk Animasi di React',
+      date: '16 Mei 2025',
+      description: 'Pengenalan Framer Motion, pustaka animasi powerful untuk React.',
+      content: (
+        <>
+          <p>
+            Framer Motion adalah pustaka animasi untuk React yang powerful namun mudah digunakan. Kamu bisa membuat animasi masuk, keluar, hover, bahkan gesture hanya dengan beberapa baris kode.
+          </p>
+          <p>
+            Untuk memulai, cukup instal dengan <code>npm install framer-motion</code>, lalu bungkus elemen dengan <code>{`<motion.div>`}</code> dan tambahkan properti seperti <code>initial</code>, <code>animate</code>, dan <code>transition</code>.
+          </p>
+          <p>
+            Contoh penggunaan animasi sederhana:
+          </p>
+          <pre>
+            <code>
+              {`<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} />`}
+            </code>
+          </pre>
+          <p>
+            Framer Motion juga mendukung animasi saat komponen muncul dan hilang dari DOM menggunakan <code>AnimatePresence</code>, serta transisi layout yang halus menggunakan <code>layout</code> prop.
+          </p>
+          <p>
+            Dengan Framer Motion, kamu bisa membuat website yang terasa lebih hidup dan interaktif tanpa perlu menulis CSS animasi manual.
+          </p>
+        </>
+      )
+    }
   };
+
   const article = articles[slug];
 
   if (!article) {
@@ -92,27 +95,33 @@ export default function Article() {
   }
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="bg-gray-50 text-gray-800 min-h-screen py-16 px-4"
-    >
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">{article.title}</h1>
-        <p className="text-sm text-gray-500 mb-6">Ditulis pada {article.date}</p>
-        <article className="space-y-5 text-lg leading-relaxed text-gray-700">
-          {article.content}
-        </article>
-        <div className="mt-10">
-          <Link
-            to="/"
-            className="inline-block px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-          >
-            ← Kembali ke Beranda
-          </Link>
+    <>
+      <Helmet>
+        <title>{article.title} – Bima Wiryadi Praja</title>
+        <meta name="description" content={article.description} />
+      </Helmet>
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gray-50 text-gray-800 min-h-screen py-16 px-4"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold mb-2">{article.title}</h1>
+          <p className="text-sm text-gray-500 mb-6">Ditulis pada {article.date}</p>
+          <article className="space-y-5 text-lg leading-relaxed text-gray-700">
+            {article.content}
+          </article>
+          <div className="mt-10">
+            <Link
+              to="/"
+              className="inline-block px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
+            >
+              ← Kembali ke Beranda
+            </Link>
+          </div>
         </div>
-      </div>
-    </motion.main>
+      </motion.main>
+    </>
   );
 }

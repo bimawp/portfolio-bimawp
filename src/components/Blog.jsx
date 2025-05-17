@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 export default function Blog() {
   const articles = [
@@ -9,29 +10,35 @@ export default function Blog() {
   ];
 
   return (
-    <section id="blog" className="py-16 bg-gray-100">
-      <h2 className="text-4xl font-bold text-center mb-12">Blog Saya</h2>
-      <div className="space-y-8 max-w-4xl mx-auto">
-        {articles.map((a, i) => (
-          <motion.article
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.2 }}
-            className="p-6 bg-white rounded-lg shadow"
-          >
-            <h3 className="text-2xl font-semibold">{a.title}</h3>
-            <p className="mt-4 text-gray-700">{a.content}</p>
-            <Link
-              to={`/article/${a.slug}`}
-              aria-label={`Baca selengkapnya tentang ${a.title}`}
-              className="mt-6 inline-block px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+    <>
+      <Helmet>
+        <title>Blog – Bima Wiryadi Praja</title>
+        <meta name="description" content="Kumpulan artikel, opini, dan tulisan Bima Wiryadi Praja seputar teknologi, web, dan pengembangan diri." />
+      </Helmet>
+      <section id="blog" className="py-16 bg-gray-100">
+        <h2 className="text-4xl font-bold text-center mb-12">Blog Saya</h2>
+        <div className="space-y-8 max-w-4xl mx-auto">
+          {articles.map((a, i) => (
+            <motion.article
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="p-6 bg-white rounded-lg shadow"
             >
-              Baca Selengkapnya →
-            </Link>
-          </motion.article>
-        ))}
-      </div>
-    </section>
+              <h3 className="text-2xl font-semibold">{a.title}</h3>
+              <p className="mt-4 text-gray-700">{a.content}</p>
+              <Link
+                to={`/article/${a.slug}`}
+                aria-label={`Baca selengkapnya tentang ${a.title}`}
+                className="mt-6 inline-block px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+              >
+                Baca Selengkapnya →
+              </Link>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

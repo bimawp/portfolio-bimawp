@@ -1,12 +1,20 @@
 // components/TaskDetail.jsx
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function TaskDetail() {
   const { id } = useParams();
-  const navigate = useNavigate(); // ← tambahkan ini
+  const navigate = useNavigate();
 
   return (
     <div className="pt-24 px-6 max-w-4xl mx-auto">
+      <Helmet>
+        <title>Detail Tugas {id} – Bima Wiryadi Praja</title>
+        <meta
+          name="description"
+          content={`Penjelasan detail tugas ${id} tentang logika first order, notasi, dan pembuktian langkah demi langkah oleh Bima Wiryadi Praja.`}
+        />
+      </Helmet>
       <h2 className="text-3xl font-semibold mb-8">Detail Tugas ID: {id}</h2>
 
       {/* Section 1 */}
