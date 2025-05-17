@@ -18,18 +18,19 @@ export default function Navbar() {
 
   const NAVBAR_HEIGHT = 72; // Ganti sesuai tinggi navbar kamu (px)
 
-  const handleNavClick = (id) => {
-    setIsOpen(false);
-    if (location.pathname !== '/') {
-      // Navigasi ke halaman utama dengan query scroll
-      navigate(`/?scrollTo=${id}`);
-    } else {
-      const el = document.getElementById(id);
-      if (el) {
-        window.scrollTo({ top: el.offsetTop - NAVBAR_HEIGHT, behavior: 'smooth' });
-      }
+const handleNavClick = (id) => {
+  setIsOpen(false);
+  if (location.pathname !== '/') {
+    navigate(`/?scrollTo=${id}`);
+  } else {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -NAVBAR_HEIGHT;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
-  };
+  }
+};
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50 top-0">
