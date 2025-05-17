@@ -9,13 +9,3 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-/* Jika ingin hanya untuk section About */
-#about {
-  scroll-margin-top: 120px; /* Ganti 120px sesuai tinggi navbar kamu */
-}
-
-/* Jika ingin semua section */
-section {
-  scroll-margin-top: 120px; /* Ganti 120px sesuai tinggi navbar kamu */
-}
