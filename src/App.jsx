@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,8 +10,8 @@ import Contact from './components/Contact';
 import Skill from './components/Skill';
 import Tugas from './components/Tugas';
 import TaskDetail from './components/TaskDetail';
-import ArtikelDetail from './components/ArtikelDetail'; // ✅ Ubah nama import
-import Article from './components/Article'; // ✅ Ini tetap untuk artikel detail lokal
+import ArtikelDetail from './components/ArtikelDetail';
+import Article from './components/Article';
 import Footer from './components/Footer';
 import Education from './components/Education';
 
@@ -49,20 +50,29 @@ function HomePage() {
   );
 }
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tugas" element={<Tugas />} />
+        <Route path="/tugas/:id" element={<TaskDetail />} />
+        <Route path="/artikel/:slug" element={<ArtikelDetail />} />
+        <Route path="/article/:slug" element={<Article />} />
+        <Route path="*" element={<h1 className="text-center p-10 text-2xl">404 - Page Not Found</h1>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   return (
     <Router>
       <div className="bg-gray-50 text-gray-800 min-h-screen font-sans scroll-smooth">
         <Navbar />
         <ScrollHandler />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/tugas" element={<Tugas />} />
-          <Route path="/tugas/:id" element={<TaskDetail />} />
-          <Route path="/artikel/:slug" element={<ArtikelDetail />} /> {/* redirect ke blog eksternal */}
-          <Route path="/article/:slug" element={<Article />} /> {/* artikel lokal */}
-          <Route path="*" element={<h1 className="text-center p-10 text-2xl">404 - Page Not Found</h1>} />
-        </Routes>
+        <AnimatedRoutes />
       </div>
     </Router>
   );
