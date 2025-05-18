@@ -29,6 +29,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Education />
       <Blog />
       <Projects />
       <Skill />

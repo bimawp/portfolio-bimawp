@@ -12,6 +12,7 @@ import TaskDetail from './components/TaskDetail';
 import ArtikelDetail from './components/ArtikelDetail'; // ✅ Ubah nama import
 import Article from './components/Article'; // ✅ Ini tetap untuk artikel detail lokal
 import Footer from './components/Footer';
+import Education from './components/Education';
 
 function ScrollHandler() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function HomePage() {
     <>
       <Hero />
       <About />
+      <Education />
       <Blog />
       <Projects />
       <Skill />
