@@ -10,6 +10,18 @@ export default function Education() {
       <section id="education" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">Riwayat Pendidikan & Pengalaman Kerja</h2>
+          
+          {/* Tombol Download CV */}
+          <div className="flex justify-center mb-10">
+            <a
+              href="/cv-bima-wiryadi-praja.pdf"
+              download
+              className="inline-block bg-gray-800 text-white px-6 py-2 rounded shadow hover:bg-gray-700 transition-colors font-semibold"
+            >
+              Download CV (PDF)
+            </a>
+          </div>
+
           <div className="flex flex-col md:flex-row gap-10">
             {/* Riwayat Pendidikan */}
             <div className="md:w-1/2">
@@ -52,6 +64,10 @@ export default function Education() {
                 <li className="bg-gray-100 rounded-lg shadow p-5">
                   <strong className="block text-lg text-gray-800">Design Grafis di Percetakan AL - Karomah</strong>
                   <span>Digital Printing dan Formatur Cetak Kertas dan Buku (2009)</span>
+                </li>
+                <li className="bg-gray-100 rounded-lg shadow p-5">
+                  <strong className="block text-lg text-gray-800">Analis Sistem</strong>
+                  <span>Melakukan analisis sistem informasi manajemen dengan studi kasus sistem keuangan di MA As Siroji (2024)</span>
                 </li>
                 {/* Tambahkan pengalaman lain jika ada */}
               </ul>
