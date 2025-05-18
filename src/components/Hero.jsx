@@ -32,10 +32,14 @@ export default function Hero() {
         />
       </Helmet>
 
-      <section
+      <motion.section
         id="hero"
         className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center"
         aria-label="Profil Utama"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.6 }}
       >
         {/* Video Latar Belakang */}
         <video
@@ -94,7 +98,7 @@ export default function Hero() {
             </div>
           </div>
         </main>
-      </section>
+      </motion.section>
     </>
   );
 }
