@@ -43,7 +43,7 @@ export default function Hero() {
           initial={{ x: -60, opacity: 0 }}
           animate={{ x: 0, opacity: 0.6 }} // opacity lebih tinggi
           transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale-0 brightness-100 z-10"
+          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale brightness-100 z-10"
           style={{
             mixBlendMode: "lighten",
           }}
