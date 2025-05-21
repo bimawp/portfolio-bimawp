@@ -2,94 +2,85 @@ import { FaWhatsapp, FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const pageVariants = {
-  initial: { opacity: 0, x: 50 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -50 }
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -30 }
 };
 
 export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="bg-gray-200 py-20 text-gray-900"
-      aria-labelledby="contact-heading"
+      className="bg-gray-100 py-20 text-gray-900"
       variants={pageVariants}
       initial="initial"
       animate="animate"
       exit="exit"
       transition={{ duration: 0.6 }}
     >
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto max-w-3xl text-center px-6">
         <motion.h2
-          id="contact-heading"
-          initial={{ y: -20, opacity: 0 }}
+          className="text-4xl font-bold mb-8"
+          initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="text-4xl font-bold mb-6"
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
           Kontak Saya
         </motion.h2>
-        <p className="text-lg mb-10">Hubungi saya melalui platform berikut:</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-10">
-          <motion.a
-            href="https://wa.me/qr/CBSN5YUM2CYFJ1"
-            title="Hubungi via WhatsApp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg shadow-lg hover:scale-110 transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaWhatsapp className="text-3xl mx-auto mb-4" /> WhatsApp
-          </motion.a>
-          <motion.a
-            href="https://www.instagram.com/bwp_bima"
-            title="Kunjungi Instagram saya"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg shadow-lg hover:scale-110 transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaInstagram className="text-3xl mx-auto mb-4" /> Instagram
-          </motion.a>
-          <motion.a
-            href="https://www.facebook.com/share/1BRFsYuuj9"
-            title="Lihat Facebook saya"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg shadow-lg hover:scale-110 transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaFacebook className="text-3xl mx-auto mb-4" /> Facebook
-          </motion.a>
-          <motion.a
-            href="https://www.tiktok.com/@bimawirya700"
-            title="Lihat TikTok saya"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg shadow-lg hover:scale-110 transition"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaTiktok className="text-3xl mx-auto mb-4" /> TikTok
-          </motion.a>
+        <p className="mb-10 text-lg text-gray-700">
+          Jangan ragu untuk menghubungi saya melalui platform berikut:
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+          {[{
+            href: "https://wa.me/qr/CBSN5YUM2CYFJ1",
+            icon: <FaWhatsapp className="text-4xl mx-auto" />,
+            label: "WhatsApp"
+          },{
+            href: "https://www.instagram.com/bwp_bima",
+            icon: <FaInstagram className="text-4xl mx-auto" />,
+            label: "Instagram"
+          },{
+            href: "https://www.facebook.com/share/1BRFsYuuj9",
+            icon: <FaFacebook className="text-4xl mx-auto" />,
+            label: "Facebook"
+          },{
+            href: "https://www.tiktok.com/@bimawirya700",
+            icon: <FaTiktok className="text-4xl mx-auto" />,
+            label: "TikTok"
+          }].map(({ href, icon, label }, i) => (
+            <motion.a
+              key={i}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Hubungi via ${label}`}
+              className="bg-gray-900 text-white rounded-lg p-6 hover:bg-gray-800 shadow-lg transition-transform"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {icon}
+              <span className="block mt-3 font-semibold">{label}</span>
+            </motion.a>
+          ))}
         </div>
-        <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md text-center">
-          <p className="text-lg font-semibold mb-2">Alamat Saya:</p>
-          <a
-            href="https://www.google.com/maps?q=Perumahan+Davira+Indah+Blok+C-8,+Desa+Sindangsari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-800 hover:text-gray-600 transition-colors"
-            title="Lihat lokasi saya di Google Maps"
-          >
-            Perumahan Davira Indah Blok C-8<br />
-            Desa Sindangsari, Kecamatan Leuwigoong<br />
-            Kabupaten Garut, Provinsi Jawa Barat, Indonesia
-          </a>
-          <p className="mt-4 text-gray-600">Klik alamat di atas untuk membuka Google Maps.</p>
+
+        <div className="bg-white rounded-lg p-8 shadow-md text-left">
+          <h3 className="text-xl font-semibold mb-3">Alamat Saya</h3>
+          <address className="not-italic text-gray-700">
+            <a
+              href="https://www.google.com/maps?q=Perumahan+Davira+Indah+Blok+C-8,+Desa+Sindangsari"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+              title="Lihat lokasi di Google Maps"
+            >
+              Perumahan Davira Indah Blok C-8,<br />
+              Desa Sindangsari, Kecamatan Leuwigoong,<br />
+              Kabupaten Garut, Jawa Barat, Indonesia
+            </a>
+          </address>
+          <p className="mt-4 text-gray-600 italic text-sm">Klik alamat di atas untuk membuka Google Maps.</p>
         </div>
       </div>
     </motion.section>

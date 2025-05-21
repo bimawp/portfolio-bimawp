@@ -20,7 +20,6 @@ export default function Footer() {
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Bima Wiryadi Praja. All rights reserved.
         </p>
-        <p className="text-xs mt-1">Dibuat dengan menggunakan React & Tailwind CSS</p>
       </div>
     </footer>
   );
