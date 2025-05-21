@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Kontak – Bima Wiryadi Praja"
+        title="Bima Wiryadi Praja"
         description="Hubungi Bima Wiryadi Praja melalui WhatsApp, Instagram, Facebook, atau TikTok. Temukan juga alamat lengkap di Garut, Jawa Barat."
         url="https://www.bimawiryadipraja.my.id/contact"
         image="https://www.bimawiryadipraja.my.id/profil1.jpg"
