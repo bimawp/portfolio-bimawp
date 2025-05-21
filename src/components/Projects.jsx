@@ -55,10 +55,10 @@ export default function Projects() {
               Aplikasi AppSheet untuk mengurus dan mengendalikan data dari 3800 lembaga di Indonesia. Projek ini merupakan program dari PT. GAP untuk mengurus lembaga yang mendapatkan bantuan pembangunan.
             </p>
             <a
-              href="https://www.appsheet.com/"
+              href="https://gapappsheets.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Lihat proyek AppSheet dari PT GAP"
+              aria-label="Lihat aplikasi AppSheet PT GAP"
               className="text-primary hover:text-primary-light"
             >
               Lihat Proyek
@@ -71,20 +71,20 @@ export default function Projects() {
               <source srcSet="/projek3.webp" type="image/webp" />
               <img
                 src="/projek3.webp"
-                alt="Dashboard Stok Buku dari CV Al Karomah"
+                alt="Website Komunitas Bentang Dataran Tinggi"
                 loading="lazy"
                 className="w-full h-auto object-cover rounded-lg mb-4"
               />
             </picture>
             <h3 className="text-2xl font-semibold">Proyek 3</h3>
             <p className="text-gray-600 mb-4">
-              Projek dari CV Al Karomah untuk membuat dashboard stok buku percetakan agar mudah dikelola. Mengelola barang masuk, keluar, dan update barang di setiap kolom barang agar memudahkan admin mengelola dalam jangka panjang.
+              Website komunitas Bentang Dataran Tinggi menyajikan informasi berita, kegiatan, dan program untuk meningkatkan kualitas dan pelestarian lingkungan di dataran tinggi.
             </p>
             <a
-              href="http://localhost:8080/JavaLanjutan1/home.jsp"
+              href="https://bentangdatarantinggi.web.app"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Lihat proyek dashboard stok buku dari CV Al Karomah"
+              aria-label="Lihat website komunitas Bentang Dataran Tinggi"
               className="text-primary hover:text-primary-light"
             >
               Lihat Proyek
