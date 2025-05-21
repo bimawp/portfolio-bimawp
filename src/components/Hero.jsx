@@ -37,7 +37,7 @@ export default function Hero() {
 
         {/* Foto profil sebagai background kiri */}
         <motion.img
-          src="/profil1.jpg"
+          src="/profil1.png"
           alt="Foto profil Bima Wiryadi Praja"
           loading="lazy"
           initial={{ x: -60, opacity: 0 }}
