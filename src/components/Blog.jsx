@@ -21,14 +21,12 @@ export default function Blog() {
         <div className="space-y-8 max-w-4xl mx-auto">
           {articles.map((a, i) => (
             <motion.article
-            id="blog"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.6 }}
-            className="py-16 bg-gray-100"
-          >
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="p-6 bg-white rounded-lg shadow"
+            >
               <h3 className="text-2xl font-semibold">{a.title}</h3>
               <p className="mt-4 text-gray-700">{a.content}</p>
               <Link
