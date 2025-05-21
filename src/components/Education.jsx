@@ -71,10 +71,10 @@ export default function Education() {
                   <strong className="block text-lg text-gray-800">Analis Sistem</strong>
                   <span>Melakukan analisis sistem informasi manajemen dengan studi kasus sistem keuangan di MA As Siroji (2024)</span>
                 </li>
-                <li className="bg-gray-100 rounded-lg shadow p-5">
+                {/* <li className="bg-gray-100 rounded-lg shadow p-5">
                   <strong className="block text-lg text-gray-800">Nama Pengalaman Baru</strong>
                   <span>Deskripsi pengalaman baru (tahun)</span>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
