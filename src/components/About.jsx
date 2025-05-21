@@ -25,7 +25,7 @@ export default function About() {
       }
     }
   }}
-  className="py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
+  className="scroll-mt-24 py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
   aria-labelledby="about-heading"
 >
 

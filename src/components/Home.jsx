@@ -18,14 +18,10 @@ useEffect(() => {
   if (location.hash) {
     const id = location.hash.replace('#', '');
     const el = document.getElementById(id);
-    const navbar = document.querySelector('nav');
-
-    if (el && navbar) {
+    if (el) {
       setTimeout(() => {
-        const navbarHeight = navbar.offsetHeight || 0;
-        const y = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 16; // extra margin
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }, 500); // waktu tunggu untuk pastikan semua section dirender
+        el.scrollIntoView({ behavior: 'smooth' });
+      }, 300); // Menunggu hingga komponen dirender sepenuhnya
     }
   }
 }, [location]);

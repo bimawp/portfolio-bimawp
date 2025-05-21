@@ -16,19 +16,19 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
-  const handleNavClick = (id) => {
-    setIsOpen(false);
-    if (location.pathname !== '/') {
-      // Pindah ke halaman utama dengan anchor langsung
-      navigate(`/#${id}`);
-    } else {
-      // Jika sudah di homepage, langsung scroll
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+const handleNavClick = (id) => {
+  setIsOpen(false);
+  if (location.pathname !== '/') {
+    // Navigasi ke halaman utama dengan hash
+    navigate(`/#${id}`);
+  } else {
+    // Jika sudah di halaman utama, scroll langsung
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }
+};
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50 top-0">
