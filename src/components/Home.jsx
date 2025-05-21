@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SEO from './SEO';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -12,6 +13,20 @@ import Tugas from '../components/Tugas';
 import Education from '../components/Education';
 
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // delay agar elemen sudah ter-render
+      }
+    }
+  }, [location]);
+
   return (
     <div className="bg-gray-50 text-gray-800 min-h-screen font-sans scroll-smooth">
       <SEO
