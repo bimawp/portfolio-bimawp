@@ -40,7 +40,7 @@ export default function Navbar() {
 
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50 top-0">
+    <nav className="fixed top-0 left-0 w-full h-[60px] bg-white shadow z-50">
       <div className="container mx-auto flex justify-between items-center px-4 py-4">
         <RouterLink
           to="/"

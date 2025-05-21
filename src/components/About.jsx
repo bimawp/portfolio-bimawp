@@ -1,33 +1,39 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const pageVariants = {
   initial: { opacity: 0, x: 50 },
   animate: { opacity: 1, x: 0 },
   exit: { opacity: 0, x: -50 }
 };
+
 export default function About() {
-  return (
-    <>
-<motion.section
-  id="about"
-  variants={pageVariants}
-  initial="initial"
-  animate="animate"
-  exit="exit"
-  transition={{ duration: 0.6 }}
-  onAnimationComplete={() => {
+
+  useEffect(() => {
     if (window.location.hash === "#about") {
       const el = document.getElementById("about");
       if (el) {
-        const yOffset = -80;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        const NAVBAR_HEIGHT = 88;
+        setTimeout(() => {
+          const y = el.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }, 400);
       }
     }
-  }}
-  className="scroll-mt-24 py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
-  aria-labelledby="about-heading"
->
+  }, []);
+
+  return (
+    <>
+      <motion.section
+        id="about"
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.6 }}
+        className="scroll-mt-[50px] py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
+        aria-labelledby="about-heading"
+      >
 
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 id="about-heading" className="text-4xl font-extrabold tracking-wide drop-shadow">
