@@ -38,18 +38,18 @@ export default function Hero() {
         {/* Foto profil sebagai background kiri */}
         <picture>
           <source srcSet="/profil1.webp" type="image/webp" />
-            <motion.img
-              src="/profil1.webp"
-              alt="Foto profil Bima Wiryadi Praja"
-              loading="lazy"
-              initial={{ x: -60, opacity: 0 }}
-              animate={{ x: 0, opacity: 0.6 }}
-              transition={{ duration: 1 }}
-              className="block md:absolute md:block md:left-0 md:top-0 w-full md:w-1/2 h-auto md:h-full object-cover object-center grayscale brightness-100 z-10 mt-6 md:mt-0"
-              style={{
-                mixBlendMode: "lighten",
-              }}
-            />
+          <motion.img
+            src="/profil1.webp"
+            alt="Foto profil Bima Wiryadi Praja"
+            // loading="lazy"  <--- Hapus ini supaya gambar dimuat langsung
+            initial={{ x: -60, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.6 }}
+            transition={{ duration: 1 }}
+            className="block md:absolute md:block md:left-0 md:top-0 w-full md:w-1/2 h-auto md:h-full object-cover object-center grayscale brightness-100 z-10 mt-6 md:mt-0"
+            style={{
+              mixBlendMode: "lighten",
+            }}
+          />
         </picture>
 
         {/* Overlay hitam transparan seluruh background */}
