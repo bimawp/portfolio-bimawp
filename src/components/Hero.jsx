@@ -40,23 +40,10 @@ export default function Hero() {
 
         {/* Konten Utama */}
         <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
-          {/* Foto di kiri (hanya untuk mobile, agar tetap ada di mobile) */}
-          <motion.img
-            src="/profil1.jpg"
-            alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-            loading="lazy"
-            initial={{ x: -60, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            whileHover={{ scale: 1.05 }}
-            className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover object-center rounded-full shadow-2xl border-4 border-white bg-gray-900 md:hidden"
-            style={{
-              background: "#18181b",
-            }}
-          />
-
+          {/* Spacer kiri agar teks selalu di kanan */}
+          <div className="hidden md:block md:w-1/2"></div>
           {/* Teks di kanan */}
-          <div className="flex-1 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
