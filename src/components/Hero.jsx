@@ -49,7 +49,7 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
               whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover rounded-full shadow-xl border-4 border-gray-200"
+              className="w-48 h-48 md:w-[300px] md:h-[300px] object-contain rounded-full shadow-xl border-4 border-gray-200 bg-white"
             />
 
             {/* Teks Profil */}
