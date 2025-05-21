@@ -41,16 +41,17 @@ export default function Hero() {
         <main className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Foto Profil */}
-            <motion.img
-              src="/profil1.jpg"
-              alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-              loading="lazy"
-              initial={{ x: -60, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              whileHover={{ scale: 1.05 }}
-              className="w-48 md:w-[300px] aspect-square object-cover object-top rounded-full shadow-xl border-4 border-gray-200"
-            />
+              <motion.img
+                src="/profil1.jpg"
+                alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
+                loading="lazy"
+                initial={{ x: -60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                whileHover={{ scale: 1.05 }}
+                className="w-32 h-32 md:w-40 md:h-40 object-cover object-center rounded-full"
+                // object-center memastikan wajah di tengah bulatan
+              />
 
 
             {/* Teks Profil */}
