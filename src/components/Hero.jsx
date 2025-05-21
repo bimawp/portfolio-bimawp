@@ -36,18 +36,21 @@ export default function Hero() {
         ></div>
 
         {/* Foto profil sebagai background kiri */}
-        <motion.img
-          src="/profil1.webp"
-          alt="Foto profil Bima Wiryadi Praja"
-          loading="lazy"
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.6 }} // opacity lebih tinggi
-          transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale brightness-100 z-10"
-          style={{
-            mixBlendMode: "lighten",
-          }}
-        />
+        <picture>
+          <source srcSet="/profil1.webp" type="image/webp" />
+          <motion.img
+            src="/profil1.png"
+            alt="Foto profil Bima Wiryadi Praja"
+            loading="lazy"
+            initial={{ x: -60, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.6 }}
+            transition={{ duration: 1 }}
+            className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale brightness-100 z-10"
+            style={{
+              mixBlendMode: "lighten",
+            }}
+          />
+        </picture>
 
         {/* Overlay hitam transparan seluruh background */}
         <div className="absolute inset-0 bg-black/60 z-20"></div>
