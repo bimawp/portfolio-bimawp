@@ -39,13 +39,13 @@ export default function Hero() {
         <picture>
           <source srcSet="/profil1.webp" type="image/webp" />
           <motion.img
-            src="/profil1.png"
+            src="/profil1.webp"
             alt="Foto profil Bima Wiryadi Praja"
             loading="lazy"
             initial={{ x: -60, opacity: 0 }}
             animate={{ x: 0, opacity: 0.6 }}
             transition={{ duration: 1 }}
-            className="block md:block absolute left-0 top-0 w-full md:w-1/2 h-1/3 md:h-full object-cover object-center grayscale brightness-100 z-10"
+            className="block md:block absolute left-0 top-24 md:top-0 w-full md:w-1/2 h-1/3 md:h-full object-cover object-center grayscale brightness-100 z-10"
             style={{
               mixBlendMode: "lighten",
             }}
@@ -64,15 +64,6 @@ export default function Hero() {
           <div className="hidden md:block md:w-1/2"></div>
           {/* Teks di kanan */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
-            {/* Foto bulat mobile */}
-            <div className="w-full flex justify-center md:hidden mt-8">
-              <img
-                src="/profil1.png"
-                alt="Foto profil Bima Wiryadi Praja"
-                className="w-24 h-24 rounded-full object-cover object-center grayscale brightness-100 border-4 border-white shadow-lg -mb-2"
-                style={{ marginTop: '-32px' }}
-              />
-            </div>
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
