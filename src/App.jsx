@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -52,15 +53,31 @@ function HomePage() {
 
 function AnimatedRoutes() {
   const location = useLocation();
+
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
+        {/* Route utama ke HomePage */}
         <Route path="/" element={<HomePage />} />
+
+        {/* Route lainnya */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/tugas" element={<Tugas />} />
         <Route path="/tugas/:id" element={<TaskDetail />} />
         <Route path="/artikel/:slug" element={<ArtikelDetail />} />
         <Route path="/article/:slug" element={<Article />} />
-        <Route path="*" element={<h1 className="text-center p-10 text-2xl">404 - Page Not Found</h1>} />
+
+        {/* 404 */}
+        <Route
+          path="*"
+          element={
+            <h1 className="text-center p-10 text-2xl">
+              404 - Page Not Found
+            </h1>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );

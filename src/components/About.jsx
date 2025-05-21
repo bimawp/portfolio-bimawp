@@ -1,16 +1,22 @@
 import { motion } from 'framer-motion';
 
+const pageVariants = {
+  initial: { opacity: 0, x: 50 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -50 }
+};
 export default function About() {
   return (
     <>
       <motion.section
-        id="about"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
-        aria-labelledby="about-heading"
+       id="about"
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.6 }}
+      className="py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
+      aria-labelledby="about-heading"
       >
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 id="about-heading" className="text-4xl font-extrabold tracking-wide drop-shadow">

@@ -16,20 +16,17 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
-  const NAVBAR_HEIGHT = 88; // Ganti sesuai tinggi navbar kamu (px)
-
   const handleNavClick = (id) => {
     setIsOpen(false);
     if (location.pathname !== '/') {
-      // Gunakan anchor agar lebih SEO friendly dan tidak menambah query param
+      // Pindah ke halaman utama dengan anchor langsung
       navigate(`/#${id}`);
     } else {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 200);
+      // Jika sudah di homepage, langsung scroll
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -52,6 +49,7 @@ export default function Navbar() {
           {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </button>
 
+        {/* Menu Desktop */}
         <ul className="hidden md:flex space-x-6 font-medium">
           {scrollLinks.map(({ label, to }) => (
             <li key={to}>
@@ -71,6 +69,7 @@ export default function Navbar() {
         </ul>
       </div>
 
+      {/* Menu Mobile */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-md px-4 py-4">
           <ul className="flex flex-col space-y-4 font-medium text-gray-700">

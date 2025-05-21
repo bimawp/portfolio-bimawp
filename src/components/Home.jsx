@@ -9,7 +9,6 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Skill from '../components/Skill';
 import Footer from '../components/Footer';
-import Tugas from '../components/Tugas';
 import Education from '../components/Education';
 
 export default function Home() {
@@ -18,11 +17,11 @@ export default function Home() {
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
+      const el = document.getElementById(id);
+      if (el) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // delay agar elemen sudah ter-render
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Tunggu hingga komponen benar-benar dirender
       }
     }
   }, [location]);
