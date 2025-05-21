@@ -33,18 +33,18 @@ export default function Hero() {
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-20 pointer-events-none"></div>
 
         {/* Foto profil sebagai background kiri */}
-        <motion.img
-          src="/profil1.jpg"
-          alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-          loading="lazy"
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.18 }}
-          transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 h-full w-1/2 object-cover object-center grayscale brightness-75 z-10"
-          style={{
-            mixBlendMode: "lighten",
-          }}
-        />
+          <motion.img
+            src="/profil1.jpg"
+            alt="Foto profil Bima Wiryadi Praja"
+            loading="lazy"
+            initial={{ x: -60, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="absolute left-0 top-0 h-full w-full object-cover object-left md:object-center z-10 opacity-20 blur-sm grayscale brightness-90"
+            style={{
+              mixBlendMode: "soft-light",
+            }}
+          />
 
         {/* Konten Utama */}
         <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
