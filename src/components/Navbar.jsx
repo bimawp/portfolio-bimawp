@@ -19,23 +19,24 @@ export default function Navbar() {
   const NAVBAR_HEIGHT = 88; // Ganti sesuai tinggi navbar kamu (px)
 
   const handleNavClick = (id) => {
-    setIsOpen(false);
-    if (location.pathname !== '/') {
-      navigate(`/?scrollTo=${id}`);
-    } else {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          // Jika ingin lebih stabil, gunakan scroll-mt di section dan cukup pakai scrollIntoView:
-          el.scrollIntoView({ behavior: 'smooth' });
-          // Jika ingin tetap pakai offset manual:
-          // const yOffset = -NAVBAR_HEIGHT;
-          // const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          // window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      }, 200); // delay 200ms agar layout stabil setelah menu close
-    }
-  };
+  setIsOpen(false);
+
+  if (location.pathname !== '/') {
+    navigate(`/?scrollTo=${id}`);
+  } else {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+
+        // 🧹 Hapus query string dari URL tanpa reload
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState(null, '', newUrl);
+      }
+    }, 200);
+  }
+};
+
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50 top-0">
