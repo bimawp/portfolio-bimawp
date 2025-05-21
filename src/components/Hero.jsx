@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import SEO from "./SEO";
 
+// Import gambar noise (letakkan di public/noise.png atau gunakan link noise SVG/png gratis)
+const noiseUrl = "/noise.png"; // pastikan file noise.png ada di public/
+
 export default function Hero() {
   return (
     <>
@@ -13,22 +16,32 @@ export default function Hero() {
 
       <motion.section
         id="hero"
-        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#23243a] via-[#35365a] to-[#e7eaf6]"
+        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
         aria-label="Profil Utama"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.6 }}
       >
+        {/* Layer noise totol putih */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${noiseUrl})`,
+            opacity: 0.18,
+            mixBlendMode: "screen",
+          }}
+        ></div>
+
         {/* Foto profil sebagai background kiri */}
         <motion.img
           src="/profil1.jpg"
           alt="Foto profil Bima Wiryadi Praja"
           loading="lazy"
           initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.22 }}
+          animate={{ x: 0, opacity: 0.32 }}
           transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale blur-sm z-10"
+          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale brightness-75 z-10"
           style={{
             mixBlendMode: "lighten",
           }}
@@ -38,7 +51,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/60 z-20"></div>
 
         {/* Overlay gradasi terang di kiri */}
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-transparent to-transparent z-30 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-30 pointer-events-none"></div>
 
         {/* Konten Utama */}
         <main className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
@@ -52,7 +65,7 @@ export default function Hero() {
               transition={{ delay: 0.3, duration: 1 }}
               className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg text-center md:text-left"
             >
-              Bima Wiryadi Praja
+              <span className="text-red-600">B</span>ima Wiryadi Praja
             </motion.h1>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
