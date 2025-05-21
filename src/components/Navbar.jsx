@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,28 +17,41 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
-      const handleNavClick = (id) => {
-        setIsOpen(false);
-        if (location.pathname !== '/') {
-          navigate(`/#${id}`);
-        } else {
-          const el = document.getElementById(id);
-          if (el) {
-            const navbarHeight = 96; // Sesuaikan dengan tinggi navbar Anda
-            const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - navbarHeight;
+  // Scroll handler untuk shadow navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth',
-            });
-          }
-        }
-      };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
+  const handleNavClick = (id) => {
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const navbarHeight = 96; // Sesuaikan tinggi navbar
+        const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
+  const isActive = (id) => {
+    return location.hash === `#${id}`;
+  };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50 top-0">
+    <nav className={`fixed top-0 w-full z-50 transition-shadow ${scrolled ? 'shadow-lg' : 'shadow-md'} bg-white`}>
       <div className="container mx-auto flex justify-between items-center px-4 py-4">
         <RouterLink
           to="/"
@@ -46,11 +60,11 @@ export default function Navbar() {
           Bima Wiryadi Praja
         </RouterLink>
 
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden" 
-          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
-          title={isOpen ? "Tutup menu" : "Buka menu"}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden"
+          aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+          title={isOpen ? 'Tutup menu' : 'Buka menu'}
         >
           {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </button>
@@ -61,7 +75,10 @@ export default function Navbar() {
             <li key={to}>
               <button
                 onClick={() => handleNavClick(to)}
-                className="hover:text-green-400 transition-colors"
+                aria-current={isActive(to) ? 'page' : undefined}
+                className={`transition-colors ${
+                  isActive(to) ? 'text-green-500 font-semibold' : 'hover:text-green-400'
+                }`}
               >
                 {label}
               </button>
@@ -83,7 +100,10 @@ export default function Navbar() {
               <li key={to}>
                 <button
                   onClick={() => handleNavClick(to)}
-                  className="hover:text-green-400 transition-colors"
+                  aria-current={isActive(to) ? 'page' : undefined}
+                  className={`transition-colors ${
+                    isActive(to) ? 'text-green-500 font-semibold' : 'hover:text-green-400'
+                  }`}
                 >
                   {label}
                 </button>
