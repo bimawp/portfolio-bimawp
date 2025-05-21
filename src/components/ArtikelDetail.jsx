@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function ArtikelDetail() {
   const { slug } = useParams();
@@ -12,10 +12,12 @@ export default function ArtikelDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>Mengarahkan ke Blog – Bima Wiryadi Praja</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEO
+        title="Mengarahkan ke Blog – Bima Wiryadi Praja"
+        description={`Mengarahkan ke blog: ${slug}`}
+        url={url}
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <div className="p-10 text-center">
         <p className="text-lg">Mengarahkan ke blog: <strong>{slug}</strong>...</p>
       </div>

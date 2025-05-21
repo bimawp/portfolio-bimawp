@@ -1,14 +1,16 @@
 import { FaWhatsapp, FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function Contact() {
   return (
     <>
-      <Helmet>
-        <title>Kontak – Bima Wiryadi Praja</title>
-        <meta name="description" content="Hubungi Bima Wiryadi Praja melalui WhatsApp, Instagram, Facebook, atau TikTok. Temukan juga alamat lengkap di Garut, Jawa Barat." />
-      </Helmet>
+      <SEO
+        title="Kontak – Bima Wiryadi Praja"
+        description="Hubungi Bima Wiryadi Praja melalui WhatsApp, Instagram, Facebook, atau TikTok. Temukan juga alamat lengkap di Garut, Jawa Barat."
+        url="https://www.bimawiryadipraja.my.id/contact"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <section id="contact" className="bg-gray-200 py-20 text-gray-900" aria-labelledby="contact-heading">
         <div className="container mx-auto text-center">
           <motion.h2

@@ -1,5 +1,5 @@
 import { FaReact, FaLaravel, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function Skill() {
   const skills = [
@@ -12,10 +12,12 @@ export default function Skill() {
   ];
   return (
     <>
-      <Helmet>
-        <title>Skill – Bima Wiryadi Praja</title>
-        <meta name="description" content="Daftar skill dan teknologi yang dikuasai Bima Wiryadi Praja, mulai dari React, Laravel, Node.js, HTML, CSS, hingga JavaScript." />
-      </Helmet>
+      <SEO
+        title="Skill – Bima Wiryadi Praja"
+        description="Daftar skill dan teknologi yang dikuasai Bima Wiryadi Praja, mulai dari React, Laravel, Node.js, HTML, CSS, hingga JavaScript."
+        url="https://www.bimawiryadipraja.my.id/skills"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <section id="skills" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-10 text-gray-800">Skill Saya</h2>

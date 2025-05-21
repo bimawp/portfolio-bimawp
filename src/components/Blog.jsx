@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function Blog() {
   const articles = [
@@ -11,10 +11,12 @@ export default function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog – Bima Wiryadi Praja</title>
-        <meta name="description" content="Kumpulan artikel, opini, dan tulisan Bima Wiryadi Praja seputar teknologi, web, dan pengembangan diri." />
-      </Helmet>
+      <SEO
+        title="Blog – Bima Wiryadi Praja"
+        description="Kumpulan artikel, opini, dan tulisan Bima Wiryadi Praja seputar teknologi, web, dan pengembangan diri."
+        url="https://www.bimawiryadipraja.my.id/blog"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <section id="blog" className="py-16 bg-gray-100">
         <h2 className="text-4xl font-bold text-center mb-12">Blog Saya</h2>
         <div className="space-y-8 max-w-4xl mx-auto">

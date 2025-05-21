@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>Tentang Saya – Bima Wiryadi Praja</title>
-        <meta name="description" content="Profil singkat Bima Wiryadi Praja, mahasiswa Sistem Informasi dan pengembang web yang berpengalaman dengan React.js, Next.js, Laravel, dan Tailwind CSS." />
-      </Helmet>
+      <SEO
+        title="Tentang Saya – Bima Wiryadi Praja"
+        description="Profil singkat Bima Wiryadi Praja, mahasiswa Sistem Informasi dan pengembang web yang berpengalaman dengan React.js, Next.js, Laravel, dan Tailwind CSS."
+        url="https://www.bimawiryadipraja.my.id/about"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <motion.section
         id="about"
         initial={{ opacity: 0 }}

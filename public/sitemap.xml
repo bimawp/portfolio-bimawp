@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://www.bimawiryadipraja.my.id/</loc>
-  <lastmod>2025-05-18T04:34:52+00:00</lastmod>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/about</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/blog</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/projects</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/contact</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/education</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/skills</loc>
+  </url>
+  <url>
+    <loc>https://www.bimawiryadipraja.my.id/tugas</loc>
+  </url>
 </urlset>

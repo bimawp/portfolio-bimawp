@@ -21,19 +21,15 @@ export default function Navbar() {
   const handleNavClick = (id) => {
     setIsOpen(false);
     if (location.pathname !== '/') {
-      navigate(`/?scrollTo=${id}`);
+      // Gunakan anchor agar lebih SEO friendly dan tidak menambah query param
+      navigate(`/#${id}`);
     } else {
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
-          // Jika ingin lebih stabil, gunakan scroll-mt di section dan cukup pakai scrollIntoView:
           el.scrollIntoView({ behavior: 'smooth' });
-          // Jika ingin tetap pakai offset manual:
-          // const yOffset = -NAVBAR_HEIGHT;
-          // const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          // window.scrollTo({ top: y, behavior: 'smooth' });
         }
-      }, 200); // delay 200ms agar layout stabil setelah menu close
+      }, 200);
     }
   };
 

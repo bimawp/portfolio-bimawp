@@ -1,7 +1,7 @@
 // src/components/Article.jsx
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet'; // Tambahkan import Helmet
+import SEO from './SEO';
 
 export default function Article() {
   const { slug } = useParams();
@@ -11,6 +11,7 @@ export default function Article() {
       title: 'Cara Membuat Website Portfolio dengan React',
       date: '14 Mei 2025',
       description: 'Panduan membuat website portfolio modern dengan React, Tailwind CSS, dan Framer Motion.',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
       content: (
         <>
           <p>
@@ -32,6 +33,7 @@ export default function Article() {
       title: 'Mengapa Tailwind CSS Cocok untuk Developer Pemula',
       date: '15 Mei 2025',
       description: 'Alasan mengapa Tailwind CSS sangat cocok untuk developer pemula dan tips penggunaannya.',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
       content: (
         <>
           <p>
@@ -53,6 +55,7 @@ export default function Article() {
       title: 'Mengenal Framer Motion untuk Animasi di React',
       date: '16 Mei 2025',
       description: 'Pengenalan Framer Motion, pustaka animasi powerful untuk React.',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
       content: (
         <>
           <p>
@@ -96,10 +99,12 @@ export default function Article() {
 
   return (
     <>
-      <Helmet>
-        <title>{article.title} – Bima Wiryadi Praja</title>
-        <meta name="description" content={article.description} />
-      </Helmet>
+      <SEO
+        title={`${article.title} – Bima Wiryadi Praja`}
+        description={article.description}
+        image={article.image}
+        url={`https://www.bimawiryadipraja.my.id/article/${slug}`}
+      />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,6 +1,6 @@
 // components/TaskDetail.jsx
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function TaskDetail() {
   const { id } = useParams();
@@ -8,13 +8,12 @@ export default function TaskDetail() {
 
   return (
     <div className="pt-24 px-6 max-w-4xl mx-auto">
-      <Helmet>
-        <title>Detail Tugas {id} – Bima Wiryadi Praja</title>
-        <meta
-          name="description"
-          content={`Penjelasan detail tugas ${id} tentang logika first order, notasi, dan pembuktian langkah demi langkah oleh Bima Wiryadi Praja.`}
-        />
-      </Helmet>
+      <SEO
+        title={`Detail Tugas ${id} – Bima Wiryadi Praja`}
+        description={`Penjelasan detail tugas ${id} tentang logika first order, notasi, dan pembuktian langkah demi langkah oleh Bima Wiryadi Praja.`}
+        url={`https://www.bimawiryadipraja.my.id/tugas/${id}`}
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <h2 className="text-3xl font-semibold mb-8">Detail Tugas ID: {id}</h2>
 
       {/* Section 1 */}

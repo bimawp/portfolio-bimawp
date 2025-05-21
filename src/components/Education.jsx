@@ -1,12 +1,14 @@
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function Education() {
   return (
     <>
-      <Helmet>
-        <title>Riwayat Pendidikan & Pengalaman Kerja – Bima Wiryadi Praja</title>
-        <meta name="description" content="Riwayat pendidikan dan pengalaman kerja Bima Wiryadi Praja, mahasiswa Sistem Informasi STMIK Mardira Indonesia." />
-      </Helmet>
+      <SEO
+        title="Riwayat Pendidikan & Pengalaman Kerja – Bima Wiryadi Praja"
+        description="Riwayat pendidikan dan pengalaman kerja Bima Wiryadi Praja, mahasiswa Sistem Informasi STMIK Mardira Indonesia."
+        url="https://www.bimawiryadipraja.my.id/education"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <section id="education" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">Riwayat Pendidikan & Pengalaman Kerja</h2>
@@ -69,7 +71,10 @@ export default function Education() {
                   <strong className="block text-lg text-gray-800">Analis Sistem</strong>
                   <span>Melakukan analisis sistem informasi manajemen dengan studi kasus sistem keuangan di MA As Siroji (2024)</span>
                 </li>
-                {/* Tambahkan pengalaman lain jika ada */}
+                <li className="bg-gray-100 rounded-lg shadow p-5">
+                  <strong className="block text-lg text-gray-800">Nama Pengalaman Baru</strong>
+                  <span>Deskripsi pengalaman baru (tahun)</span>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
 export default function Tugas() {
   const tugasList = [
@@ -13,10 +13,12 @@ export default function Tugas() {
 
   return (
     <div className="pt-24 px-6 max-w-4xl mx-auto">
-      <Helmet>
-        <title>Daftar Tugas – Bima Wiryadi Praja</title>
-        <meta name="description" content="Kumpulan tugas dan latihan logika komputer oleh Bima Wiryadi Praja. Klik untuk melihat detail dan pembahasan setiap tugas." />
-      </Helmet>
+      <SEO
+        title="Daftar Tugas – Bima Wiryadi Praja"
+        description="Kumpulan tugas dan latihan logika komputer oleh Bima Wiryadi Praja. Klik untuk melihat detail dan pembahasan setiap tugas."
+        url="https://www.bimawiryadipraja.my.id/tugas"
+        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+      />
       <h1 className="text-3xl font-bold mb-8 text-center">Daftar Tugas</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tugasList.map((tugas, index) => (
