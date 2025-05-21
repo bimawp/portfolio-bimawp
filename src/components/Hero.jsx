@@ -13,65 +13,57 @@ export default function Hero() {
 
       <motion.section
         id="hero"
-        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-tr from-[#1f1c2c] via-[#928DAB] to-[#1f1c2c]"
+        className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-black"
         aria-label="Profil Utama"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 40 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        {/* Efek Bokeh */}
-        <div className="absolute inset-0 z-0">
-          <div className="w-80 h-80 bg-purple-400/30 rounded-full blur-3xl absolute top-1/3 left-1/4 animate-pulse" />
-          <div className="w-96 h-96 bg-indigo-400/20 rounded-full blur-2xl absolute bottom-10 right-1/4 animate-ping" />
-        </div>
-
-        {/* Overlay gelap seluruh bg */}
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-
-        {/* Overlay terang di kiri untuk foto */}
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-20 pointer-events-none"></div>
-
-        {/* Foto profil sebagai background kiri */}
-          <motion.img
+        {/* Background Foto di Kiri */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 w-1/2 left-0 top-0 h-full z-10"
+        >
+          <img
             src="/profil1.jpg"
-            alt="Foto profil Bima Wiryadi Praja"
-            loading="lazy"
-            initial={{ x: -60, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="absolute left-0 top-0 h-full w-full object-cover object-left md:object-center z-10 opacity-20 blur-sm grayscale brightness-90"
+            alt="Foto profil Bima"
+            className="w-full h-full object-cover object-center grayscale opacity-30 blur-sm"
             style={{
-              mixBlendMode: "soft-light",
+              mixBlendMode: "screen",
             }}
           />
+        </motion.div>
 
-        {/* Konten Utama */}
-        <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
-          {/* Spacer kiri agar teks selalu di kanan */}
-          <div className="hidden md:block md:w-1/2"></div>
+        {/* Overlay gelap full layar */}
+        <div className="absolute inset-0 bg-black/70 z-20"></div>
 
-          {/* Teks di kanan */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
+        {/* Konten */}
+        <main className="relative z-30 w-full max-w-6xl px-6 mx-auto flex flex-col md:flex-row items-center justify-between h-full">
+          {/* Spacer kiri agar teks tetap di kanan */}
+          <div className="hidden md:block w-1/2"></div>
+
+          {/* Konten Teks */}
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center text-gray-100">
             <motion.h1
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg text-center md:text-left"
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-4xl md:text-6xl font-bold mb-6 text-center md:text-left leading-tight"
             >
               Bima Wiryadi Praja
             </motion.h1>
-
             <motion.p
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="text-sm md:text-lg leading-relaxed max-w-lg text-center md:text-left"
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-base md:text-lg max-w-lg text-center md:text-left text-gray-300"
             >
-              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam{" "}
-              <strong>pengembangan web</strong> &{" "}
-              <strong>teknologi digital</strong>.<br />
-              Dikenal juga sebagai <strong>Bima WP</strong>.
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
+              dalam <strong>pengembangan web</strong> &{" "}
+              <strong>teknologi digital</strong>. Dikenal juga sebagai{" "}
+              <strong>Bima WP</strong>.
             </motion.p>
           </div>
         </main>
