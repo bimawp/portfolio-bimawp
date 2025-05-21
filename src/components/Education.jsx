@@ -31,7 +31,7 @@ export default function Education() {
               <ul className="space-y-6">
                 <li className="bg-gray-100 rounded-lg shadow p-5">
                   <strong className="block text-lg text-gray-800">S1 Teknik Informatika</strong>
-                  <span>Sekolah Tinggi Manajemen Informatika dan Komputer (2022 – Sekarang)</span><br />
+                  <span>Sekolah Tinggi Manajemen Informatika dan Komputer (STMIK) Mardira Indonesia (2022 – 2026)</span><br />
                   <span className="text-sm text-gray-600">IPK: 3.50</span>
                 </li>
                 <li className="bg-gray-100 rounded-lg shadow p-5">
