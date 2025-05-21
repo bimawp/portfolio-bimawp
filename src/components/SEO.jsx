@@ -21,6 +21,13 @@ const SEO = ({
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <link rel="canonical" href={url} />
+
+    <link
+  rel="preload"
+  as="image"
+  href="/profil1.webp"
+  type="image/webp"
+/>
   </Helmet>
 );
 
