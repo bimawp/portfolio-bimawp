@@ -14,17 +14,21 @@ import Education from '../components/Education';
 export default function Home() {
   const location = useLocation();
 
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // Tunggu render komponen
-      }
+useEffect(() => {
+  if (location.hash) {
+    const id = location.hash.replace('#', '');
+    const el = document.getElementById(id);
+    const navbar = document.querySelector('nav');
+
+    if (el && navbar) {
+      setTimeout(() => {
+        const navbarHeight = navbar.offsetHeight || 0;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 16; // extra margin
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 500); // waktu tunggu untuk pastikan semua section dirender
     }
-  }, [location]);
+  }
+}, [location]);
 
   return (
     <div className="bg-gray-50 text-gray-800 min-h-screen font-sans scroll-smooth">
