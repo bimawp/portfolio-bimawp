@@ -8,16 +8,27 @@ const pageVariants = {
 export default function About() {
   return (
     <>
-      <motion.section
-       id="about"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.6 }}
-      className="py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
-      aria-labelledby="about-heading"
-      >
+<motion.section
+  id="about"
+  variants={pageVariants}
+  initial="initial"
+  animate="animate"
+  exit="exit"
+  transition={{ duration: 0.6 }}
+  onAnimationComplete={() => {
+    if (window.location.hash === "#about") {
+      const el = document.getElementById("about");
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }}
+  className="py-20 px-6 bg-gradient-to-r from-gray-600 to-gray-800 text-gray-100"
+  aria-labelledby="about-heading"
+>
+
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 id="about-heading" className="text-4xl font-extrabold tracking-wide drop-shadow">
             Tentang Saya
