@@ -25,11 +25,13 @@ export default function Hero() {
       >
         {/* Layer noise totol putih */}
         <div
-          className="pointer-events-none absolute inset-0 z-0"
+          className="pointer-events-none absolute inset-0 z-40"
           style={{
             backgroundImage: `url(${noiseUrl})`,
-            opacity: 0.18,
+            opacity: 0.35, // lebih tinggi agar noise lebih kelihatan
             mixBlendMode: "screen",
+            backgroundSize: "300px 300px", // pastikan noise tidak terlalu kecil
+            backgroundRepeat: "repeat",
           }}
         ></div>
 
@@ -39,9 +41,9 @@ export default function Hero() {
           alt="Foto profil Bima Wiryadi Praja"
           loading="lazy"
           initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.32 }}
+          animate={{ x: 0, opacity: 0.6 }} // opacity lebih tinggi
           transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale brightness-75 z-10"
+          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale-0 brightness-100 z-10"
           style={{
             mixBlendMode: "lighten",
           }}
