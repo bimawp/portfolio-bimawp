@@ -13,20 +13,25 @@ import Education from '../components/Education';
 
 export default function Home() {
   const location = useLocation();
+  const contactRef = useRef(null);
 
-        useEffect(() => {
-          const params = new URLSearchParams(location.search);
-          const scrollTo = params.get("scrollTo");
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const scrollTo = params.get("scrollTo");
 
-          if (scrollTo) {
-            const element = document.getElementById(scrollTo);
-            if (element) {
-              setTimeout(() => {
-                element.scrollIntoView({ behavior: "smooth" });
-              }, 100); // kasih delay sedikit biar konten sempat dimount
-            }
-          }
-        }, [location]);
+  if (scrollTo) {
+    const element = document.getElementById(scrollTo);
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+
+        // Hapus parameter scrollTo dari URL setelah scroll selesai
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+      }, 500); // bisa disesuaikan delaynya
+    }
+  }
+}, [location]);
 
 
   return (

@@ -10,14 +10,25 @@ const pageVariants = {
 export default function Contact() {
   return (
     <motion.section
-      id="contact"
-      className="bg-gray-200 py-20 text-gray-900"
-      aria-labelledby="contact-heading"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.6 }}
+  id="contact"
+  className="bg-gray-200 py-20 text-gray-900"
+  aria-labelledby="contact-heading"
+  variants={pageVariants}
+  initial="initial"
+  animate="animate"
+  exit="exit"
+  transition={{ duration: 0.6 }}
+  onAnimationComplete={() => {
+    const params = new URLSearchParams(location.search);
+    const scrollTo = params.get("scrollTo");
+
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }}
     >
       <div className="container mx-auto text-center">
         <motion.h2
