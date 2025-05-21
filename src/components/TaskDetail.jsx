@@ -12,7 +12,7 @@ export default function TaskDetail() {
         title={`Detail Tugas ${id} – Bima Wiryadi Praja`}
         description={`Penjelasan detail tugas ${id} tentang logika first order, notasi, dan pembuktian langkah demi langkah oleh Bima Wiryadi Praja.`}
         url={`https://www.bimawiryadipraja.my.id/tugas/${id}`}
-        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+        image="https://www.bimawiryadipraja.my.id/profil1.webp"
       />
       <h2 className="text-3xl font-semibold mb-8">Detail Tugas ID: {id}</h2>
 

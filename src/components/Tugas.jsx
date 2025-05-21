@@ -17,7 +17,7 @@ export default function Tugas() {
         title="Daftar Tugas – Bima Wiryadi Praja"
         description="Kumpulan tugas dan latihan logika komputer oleh Bima Wiryadi Praja. Klik untuk melihat detail dan pembahasan setiap tugas."
         url="https://www.bimawiryadipraja.my.id/tugas"
-        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+        image="https://www.bimawiryadipraja.my.id/profil1.webp"
       />
       <h1 className="text-3xl font-bold mb-8 text-center">Daftar Tugas</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -19,7 +19,7 @@ export default function BimaWP() {
 
         <div className="mt-10">
           <img
-            src="/profil1.jpg"
+            src="/profil1.webp"
             alt="Bima WP"
             className="mx-auto rounded-full w-48 h-48 object-cover shadow-md border-4 border-white"
           />

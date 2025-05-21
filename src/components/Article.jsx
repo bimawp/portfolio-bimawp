@@ -11,7 +11,7 @@ export default function Article() {
       title: 'Cara Membuat Website Portfolio dengan React',
       date: '14 Mei 2025',
       description: 'Panduan membuat website portfolio modern dengan React, Tailwind CSS, dan Framer Motion.',
-      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.webp',
       content: (
         <>
           <p>
@@ -33,7 +33,7 @@ export default function Article() {
       title: 'Mengapa Tailwind CSS Cocok untuk Developer Pemula',
       date: '15 Mei 2025',
       description: 'Alasan mengapa Tailwind CSS sangat cocok untuk developer pemula dan tips penggunaannya.',
-      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.webp',
       content: (
         <>
           <p>
@@ -55,7 +55,7 @@ export default function Article() {
       title: 'Mengenal Framer Motion untuk Animasi di React',
       date: '16 Mei 2025',
       description: 'Pengenalan Framer Motion, pustaka animasi powerful untuk React.',
-      image: 'https://www.bimawiryadipraja.my.id/profil1.jpg',
+      image: 'https://www.bimawiryadipraja.my.id/profil1.webp',
       content: (
         <>
           <p>

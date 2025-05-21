@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const SEO = ({
   title = "Bima Wiryadi Praja - Web Developer",
   description = "Portofolio online Bima Wiryadi Praja, seorang web developer yang membuat berbagai proyek digital.",
-  image = "https://www.bimawiryadipraja.my.id/profil1.jpg",
+  image = "https://www.bimawiryadipraja.my.id/profil1.webp",
   url = "https://www.bimawiryadipraja.my.id/",
 }) => (
   <Helmet>

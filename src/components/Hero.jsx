@@ -11,7 +11,7 @@ export default function Hero() {
         title="Bima Wiryadi Praja | Mahasiswa Sistem Informasi"
         description="Profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi STMIK Mardira Indonesia yang memiliki minat dalam pengembangan web dan teknologi digital."
         url="https://www.bimawiryadipraja.my.id"
-        image="https://www.bimawiryadipraja.my.id/profil1.png"
+        image="https://www.bimawiryadipraja.my.id/profil1.webp"
       />
 
       <motion.section
@@ -37,7 +37,7 @@ export default function Hero() {
 
         {/* Foto profil sebagai background kiri */}
         <motion.img
-          src="/profil1.png"
+          src="/profil1.webp"
           alt="Foto profil Bima Wiryadi Praja"
           loading="lazy"
           initial={{ x: -60, opacity: 0 }}

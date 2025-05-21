@@ -16,7 +16,7 @@ export default function ArtikelDetail() {
         title="Mengarahkan ke Blog – Bima Wiryadi Praja"
         description={`Mengarahkan ke blog: ${slug}`}
         url={url}
-        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+        image="https://www.bimawiryadipraja.my.id/profil1.webp"
       />
       <div className="p-10 text-center">
         <p className="text-lg">Mengarahkan ke blog: <strong>{slug}</strong>...</p>
