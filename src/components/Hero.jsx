@@ -10,17 +10,25 @@ export default function Hero() {
         url="https://www.bimawiryadipraja.my.id"
         image="https://www.bimawiryadipraja.my.id/profil1.jpg"
       />
+
       <motion.section
         id="hero"
-        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700"
+        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-tr from-[#1f1c2c] via-[#928DAB] to-[#1f1c2c]"
         aria-label="Profil Utama"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
+        {/* Efek Bokeh */}
+        <div className="absolute inset-0 z-0">
+          <div className="w-80 h-80 bg-purple-400/30 rounded-full blur-3xl absolute top-1/3 left-1/4 animate-pulse" />
+          <div className="w-96 h-96 bg-indigo-400/20 rounded-full blur-2xl absolute bottom-10 right-1/4 animate-ping" />
+        </div>
+
         {/* Overlay gelap seluruh bg */}
         <div className="absolute inset-0 bg-black/60 z-10"></div>
+
         {/* Overlay terang di kiri untuk foto */}
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-20 pointer-events-none"></div>
 
@@ -42,6 +50,7 @@ export default function Hero() {
         <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
           {/* Spacer kiri agar teks selalu di kanan */}
           <div className="hidden md:block md:w-1/2"></div>
+
           {/* Teks di kanan */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
             <motion.h1
@@ -52,6 +61,7 @@ export default function Hero() {
             >
               Bima Wiryadi Praja
             </motion.h1>
+
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
