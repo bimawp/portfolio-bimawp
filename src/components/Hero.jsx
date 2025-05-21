@@ -13,35 +13,37 @@ export default function Hero() {
 
       <motion.section
         id="hero"
-        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700"
+        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#23243a] via-[#35365a] to-[#e7eaf6]"
         aria-label="Profil Utama"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Overlay hitam transparan seluruh background */}
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-
-        {/* Overlay kiri terang seperti Amili-a */}
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/10 via-transparent to-transparent z-20 pointer-events-none"></div>
-
         {/* Foto profil sebagai background kiri */}
         <motion.img
           src="/profil1.jpg"
           alt="Foto profil Bima Wiryadi Praja"
           loading="lazy"
           initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.3 }}
+          animate={{ x: 0, opacity: 0.22 }}
           transition={{ duration: 1 }}
-          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale blur-sm mix-blend-overlay z-10"
+          className="hidden md:block absolute left-0 top-0 w-1/2 h-full object-cover object-center grayscale blur-sm z-10"
+          style={{
+            mixBlendMode: "lighten",
+          }}
         />
 
+        {/* Overlay hitam transparan seluruh background */}
+        <div className="absolute inset-0 bg-black/60 z-20"></div>
+
+        {/* Overlay gradasi terang di kiri */}
+        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-transparent to-transparent z-30 pointer-events-none"></div>
+
         {/* Konten Utama */}
-        <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
+        <main className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
           {/* Spacer kiri agar teks selalu di kanan */}
           <div className="hidden md:block md:w-1/2"></div>
-
           {/* Teks di kanan */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
             <motion.h1
@@ -52,7 +54,6 @@ export default function Hero() {
             >
               Bima Wiryadi Praja
             </motion.h1>
-
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
