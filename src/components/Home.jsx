@@ -19,21 +19,22 @@ export default function Home() {
   const navigate = useNavigate(); // ⬅️ Tambahkan ini
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const scrollTo = params.get("scrollTo");
+  const params = new URLSearchParams(location.search);
+  const scrollTo = params.get('scrollTo');
+  if (scrollTo) {
+    const el = document.getElementById(scrollTo);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth' });
 
-    if (scrollTo) {
-      const element = document.getElementById(scrollTo);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-
-          // Hapus query param via React Router
-          navigate(location.pathname, { replace: true }); // ⬅️ Ini yang bikin ?scrollTo=contact hilang
-        }, 500);
-      }
+        // 🧹 Hapus parameter query dari URL tanpa reload
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState(null, '', newUrl);
+      }, 200);
     }
-  }, [location, navigate]);
+  }
+}, [location.search]);
+
 
 
   return (

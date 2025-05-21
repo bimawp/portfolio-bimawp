@@ -29,13 +29,14 @@ export default function Navbar() {
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
 
-        // 🧹 Hapus query string dari URL tanpa reload
+        // 🧹 Hapus parameter query dari URL tanpa reload
         const newUrl = window.location.origin + window.location.pathname;
         window.history.replaceState(null, '', newUrl);
       }
     }, 200);
   }
 };
+
 
 
   return (
