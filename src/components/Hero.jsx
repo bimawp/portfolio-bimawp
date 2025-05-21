@@ -41,15 +41,10 @@ export default function Hero() {
         <main className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Foto Profil */}
-            <motion.img
+            <img
               src="/profil1.jpg"
-              alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-              loading="lazy"
-              initial={{ x: -60, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover rounded-full shadow-xl border-4 border-gray-200"
+              alt="Bima Wiryadi Praja"
+              className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
             />
 
             {/* Teks Profil */}
