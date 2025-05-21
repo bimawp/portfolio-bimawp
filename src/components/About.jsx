@@ -1,13 +1,8 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
 
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>Tentang Saya – Bima Wiryadi Praja</title>
-        <meta name="description" content="Profil singkat Bima Wiryadi Praja, mahasiswa Sistem Informasi dan pengembang web yang berpengalaman dengan React.js, Next.js, Laravel, dan Tailwind CSS." />
-      </Helmet>
       <motion.section
         id="about"
         initial={{ opacity: 0 }}
