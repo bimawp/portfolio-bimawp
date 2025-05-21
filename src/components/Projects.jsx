@@ -1,12 +1,6 @@
-import { Helmet } from 'react-helmet';
-
 export default function Projects() {
   return (
     <>
-      <Helmet>
-        <title>Project – Bima Wiryadi Praja</title>
-        <meta name="description" content="Daftar project dan portofolio karya Bima Wiryadi Praja di bidang pengembangan web, aplikasi, dan teknologi." />
-      </Helmet>
       <section id="projects" className="py-20 px-6 bg-gray-100 text-gray-900">
         <div className="max-w-6xl mx-auto text-center space-y-8">
           <h2 className="text-4xl font-extrabold">Projek Saya</h2>
