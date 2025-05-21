@@ -30,7 +30,7 @@ export default function Hero() {
             backgroundImage: `url(${noiseUrl})`,
             opacity: 0.35, // lebih tinggi agar noise lebih kelihatan
             mixBlendMode: "screen",
-            backgroundSize: "80px 80px", // lebih halus dan natural
+            backgroundSize: "300px 300px", // pastikan noise tidak terlalu kecil
             backgroundRepeat: "repeat",
           }}
         ></div>
@@ -38,18 +38,18 @@ export default function Hero() {
         {/* Foto profil sebagai background kiri */}
         <picture>
           <source srcSet="/profil1.webp" type="image/webp" />
-          <motion.img
-            src="/profil1.webp"
-            alt="Foto profil Bima Wiryadi Praja"
-            loading="lazy"
-            initial={{ x: -60, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.6 }}
-            transition={{ duration: 1 }}
-            className="block md:block absolute left-0 top-24 md:top-0 w-full md:w-1/2 h-1/3 md:h-full object-cover object-center grayscale brightness-100 z-10"
-            style={{
-              mixBlendMode: "lighten",
-            }}
-          />
+            <motion.img
+              src="/profil1.webp"
+              alt="Foto profil Bima Wiryadi Praja"
+              loading="lazy"
+              initial={{ x: -60, opacity: 0 }}
+              animate={{ x: 0, opacity: 0.6 }}
+              transition={{ duration: 1 }}
+              className="block md:absolute md:block md:left-0 md:top-0 w-full md:w-1/2 h-auto md:h-full object-cover object-center grayscale brightness-100 z-10 mt-6 md:mt-0"
+              style={{
+                mixBlendMode: "lighten",
+              }}
+            />
         </picture>
 
         {/* Overlay hitam transparan seluruh background */}
