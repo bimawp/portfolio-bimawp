@@ -21,7 +21,7 @@ export default function Home() {
       if (el) {
         setTimeout(() => {
           el.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // Tunggu hingga komponen benar-benar dirender
+        }, 300); // Tunggu render komponen
       }
     }
   }, [location]);
