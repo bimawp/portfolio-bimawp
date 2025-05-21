@@ -14,17 +14,25 @@ import Education from '../components/Education';
 export default function Home() {
   const location = useLocation();
 
-useEffect(() => {
-  if (location.hash) {
-    const id = location.hash.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }, 300); // Menunggu hingga komponen dirender sepenuhnya
-    }
-  }
-}, [location]);
+        useEffect(() => {
+          if (location.hash) {
+            const id = location.hash.replace('#', '');
+            const el = document.getElementById(id);
+            if (el) {
+              const navbarHeight = 96; // Sesuaikan dengan tinggi navbar Anda
+              const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+              const offsetPosition = elementPosition - navbarHeight;
+
+              setTimeout(() => {
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth',
+                });
+              }, 300); // Tunggu hingga komponen dirender
+            }
+          }
+        }, [location]);
+
 
   return (
     <div className="bg-gray-50 text-gray-800 min-h-screen font-sans scroll-smooth">

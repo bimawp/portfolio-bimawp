@@ -16,19 +16,25 @@ export default function Navbar() {
     { label: 'Kontak', to: 'contact' },
   ];
 
-const handleNavClick = (id) => {
-  setIsOpen(false);
-  if (location.pathname !== '/') {
-    // Navigasi ke halaman utama dengan hash
-    navigate(`/#${id}`);
-  } else {
-    // Jika sudah di halaman utama, scroll langsung
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-};
+      const handleNavClick = (id) => {
+        setIsOpen(false);
+        if (location.pathname !== '/') {
+          navigate(`/#${id}`);
+        } else {
+          const el = document.getElementById(id);
+          if (el) {
+            const navbarHeight = 96; // Sesuaikan dengan tinggi navbar Anda
+            const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - navbarHeight;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+          }
+        }
+      };
+
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50 top-0">
