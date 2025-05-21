@@ -22,11 +22,25 @@ export default function Hero() {
         {/* Overlay gelap seluruh bg */}
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         {/* Overlay terang di kiri untuk foto */}
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/30 via-white/10 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-20 pointer-events-none"></div>
+
+        {/* Foto profil sebagai background kiri */}
+        <motion.img
+          src="/profil1.jpg"
+          alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
+          loading="lazy"
+          initial={{ x: -60, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.18 }}
+          transition={{ duration: 1 }}
+          className="hidden md:block absolute left-0 top-0 h-full w-1/2 object-cover object-center grayscale brightness-75 z-10"
+          style={{
+            mixBlendMode: "lighten",
+          }}
+        />
 
         {/* Konten Utama */}
         <main className="relative z-30 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
-          {/* Foto di kiri */}
+          {/* Foto di kiri (hanya untuk mobile, agar tetap ada di mobile) */}
           <motion.img
             src="/profil1.jpg"
             alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
@@ -35,7 +49,7 @@ export default function Hero() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
             whileHover={{ scale: 1.05 }}
-            className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover object-center rounded-full shadow-2xl border-4 border-white bg-gray-900"
+            className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover object-center rounded-full shadow-2xl border-4 border-white bg-gray-900 md:hidden"
             style={{
               background: "#18181b",
             }}
