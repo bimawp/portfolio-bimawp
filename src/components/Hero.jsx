@@ -12,7 +12,7 @@ export default function Hero() {
       />
       <motion.section
         id="hero"
-        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center"
+        className="scroll-mt-24 relative w-full h-screen overflow-hidden flex items-center justify-center bg-black"
         aria-label="Profil Utama"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -20,7 +20,8 @@ export default function Hero() {
         transition={{ duration: 0.6 }}
       >
         {/* Video Latar Belakang */}
-        <video
+        {/* Hapus video jika ingin benar-benar hitam polos */}
+        {/* <video
           className="absolute inset-0 w-full h-full object-cover filter grayscale"
           autoPlay
           muted
@@ -32,27 +33,30 @@ export default function Hero() {
           <source src="/bg.mp4" type="video/mp4" />
           <source src="/bg.webm" type="video/webm" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
 
         {/* Overlay Gelap */}
-        <div className="absolute inset-0 bg-gray-900 opacity-70"></div>
+        {/* Hapus overlay agar background benar-benar hitam */}
+        {/* <div className="absolute inset-0 bg-gray-900 opacity-70"></div> */}
 
         {/* Konten Utama */}
         <main className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Foto Profil */}
-              <motion.img
-                src="/profil1.jpg"
-                alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
-                loading="lazy"
-                initial={{ x: -60, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-                whileHover={{ scale: 1.05 }}
-                className="w-32 h-32 md:w-40 md:h-40 object-cover object-center rounded-full"
-                // object-center memastikan wajah di tengah bulatan
-              />
-
+            <motion.img
+              src="/profil1.jpg"
+              alt="Foto profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi"
+              loading="lazy"
+              initial={{ x: -60, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.05 }}
+              className="w-48 h-48 md:w-[300px] md:h-[300px] object-cover object-center rounded-full bg-black border-4 border-black shadow-none"
+              style={{
+                background: "#000", // pastikan background bulatan hitam
+                boxShadow: "none",
+              }}
+            />
 
             {/* Teks Profil */}
             <div className="text-gray-100 text-center md:text-left px-2">
