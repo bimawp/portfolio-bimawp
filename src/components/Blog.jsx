@@ -2,43 +2,41 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const pageVariants = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -30 }
+  initial: { opacity: 0, x: 50 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -50 }
 };
 
 export default function Blog() {
   const articles = [
-    { slug: 'artikel-1', title: 'Portfolio Online Pentingnya', content: 'Portfolio online sangat penting untuk menampilkan karya dan pengalaman secara profesional...' },
-    { slug: 'artikel-2', title: 'Kenalan dengan Tailwind CSS', content: 'Tailwind CSS adalah framework CSS utility-first yang memudahkan styling komponen...' },
-    { slug: 'artikel-3', title: 'Animasi dengan Framer Motion', content: 'Framer Motion adalah pustaka animasi React yang powerful dan mudah digunakan...' },
+    { slug: 'artikel-1', title: 'Artikel 1', content: 'Portfolio online sangat penting...' },
+    { slug: 'artikel-2', title: 'Artikel 2', content: 'Tailwind CSS adalah framework...' },
+    { slug: 'artikel-3', title: 'Artikel 3', content: 'Framer Motion adalah pustaka...' },
   ];
 
   return (
     <motion.section
-      className="py-16 bg-gray-50"
+      className="py-16 bg-gray-100"
       variants={pageVariants}
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: 0.6 }}
     >
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Blog Saya</h2>
-      <div className="max-w-4xl mx-auto space-y-10">
-        {articles.map(({ slug, title, content }, idx) => (
+      <h2 className="text-4xl font-bold text-center mb-12">Blog Saya</h2>
+      <div className="space-y-8 max-w-4xl mx-auto">
+        {articles.map((a, i) => (
           <motion.article
-            key={idx}
-            className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-            whileHover={{ scale: 1.03 }}
+            key={i}
+            className="p-6 bg-white rounded-lg shadow-md"
+            whileHover={{ scale: 1.02 }}
           >
-            <h3 className="text-2xl font-semibold text-gray-800">{title}</h3>
-            <p className="mt-4 text-gray-700 leading-relaxed">{content}</p>
+            <h3 className="text-2xl font-semibold">{a.title}</h3>
+            <p className="mt-4 text-gray-700">{a.content}</p>
             <Link
-              to={`/article/${slug}`}
-              className="inline-block mt-6 text-primary hover:text-primary-dark font-medium"
-              aria-label={`Baca selengkapnya: ${title}`}
+              to={`/article/${a.slug}`}
+              className="mt-6 inline-block px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
             >
-              Baca Selengkapnya &rarr;
+              Baca Selengkapnya →
             </Link>
           </motion.article>
         ))}

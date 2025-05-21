@@ -1,95 +1,104 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { HiMenu, HiOutlineX } from 'react-icons/hi';
-
-const scrollLinks = [
-  { label: 'Beranda', to: '#' },
-  { label: 'Tentang', to: '#tentang' },
-  { label: 'Projek', to: '#projects' },
-  { label: 'Blog', to: '#blog' },
-  { label: 'Kontak', to: '#contact' }
-];
+import { Link as RouterLink } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isActive = (to) => {
-    // Simple check: active if current location.hash === to or if no hash and to === '#'
-    return location.hash === to || (location.hash === '' && to === '#');
-  };
+  const scrollLinks = [
+    { label: 'Beranda', to: 'hero' },
+    { label: 'Tentang', to: 'about' },
+    { label: 'Blog', to: 'blog' },
+    { label: 'Project', to: 'projects' },
+    { label: 'Kontak', to: 'contact' },
+  ];
 
-  const handleNavClick = (to) => {
+  const NAVBAR_HEIGHT = 88; // Ganti sesuai tinggi navbar kamu (px)
+
+  const handleNavClick = (id) => {
     setIsOpen(false);
-    if (to === '#') {
-      navigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate(`/?scrollTo=${id}`);
     } else {
-      const id = to.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        const yOffset = -60; // height navbar offset
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          // Jika ingin lebih stabil, gunakan scroll-mt di section dan cukup pakai scrollIntoView:
+          el.scrollIntoView({ behavior: 'smooth' });
+          // Jika ingin tetap pakai offset manual:
+          // const yOffset = -NAVBAR_HEIGHT;
+          // const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          // window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 200); // delay 200ms agar layout stabil setelah menu close
     }
   };
 
-  // Close mobile menu on route/hash change (optional)
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <div className="text-xl font-bold cursor-pointer" onClick={() => handleNavClick('#')}>
-          LogoSaya
-        </div>
+    <nav className="bg-white shadow-md fixed w-full z-50 top-0">
+      <div className="container mx-auto flex justify-between items-center px-4 py-4">
+        <RouterLink
+          to="/"
+          className="text-xl font-bold hover:text-green-400 transition-colors"
+        >
+          Bima Wiryadi Praja
+        </RouterLink>
 
-        {/* Menu Desktop */}
-        <ul className="hidden md:flex space-x-8 font-medium">
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="md:hidden" 
+          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+          title={isOpen ? "Tutup menu" : "Buka menu"}
+        >
+          {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+        </button>
+
+        <ul className="hidden md:flex space-x-6 font-medium">
           {scrollLinks.map(({ label, to }) => (
             <li key={to}>
               <button
                 onClick={() => handleNavClick(to)}
-                className={`hover:text-green-600 transition-colors ${
-                  isActive(to) ? 'text-green-600 font-semibold' : 'text-gray-700'
-                }`}
+                className="hover:text-green-400 transition-colors"
               >
                 {label}
               </button>
             </li>
           ))}
+          <li>
+            <RouterLink to="/tugas" className="hover:text-green-400 transition-colors">
+              Tugas
+            </RouterLink>
+          </li>
         </ul>
-
-        {/* Menu Mobile Button */}
-        <button
-          className="md:hidden text-2xl text-gray-700"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <HiOutlineX /> : <HiMenu />}
-        </button>
       </div>
 
-      {/* Menu Mobile */}
       {isOpen && (
-        <ul className="md:hidden bg-white shadow-lg py-4 space-y-4 text-center font-medium">
-          {scrollLinks.map(({ label, to }) => (
-            <li key={to}>
-              <button
-                onClick={() => handleNavClick(to)}
-                className="block w-full py-2 hover:text-green-600 transition-colors text-gray-800"
+        <div className="md:hidden bg-white shadow-md px-4 py-4">
+          <ul className="flex flex-col space-y-4 font-medium text-gray-700">
+            {scrollLinks.map(({ label, to }) => (
+              <li key={to}>
+                <button
+                  onClick={() => handleNavClick(to)}
+                  className="hover:text-green-400 transition-colors"
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+            <li>
+              <RouterLink
+                to="/tugas"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-green-400 transition-colors"
               >
-                {label}
-              </button>
+                Tugas
+              </RouterLink>
             </li>
-          ))}
-        </ul>
+          </ul>
+        </div>
       )}
     </nav>
   );

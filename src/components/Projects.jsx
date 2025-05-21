@@ -1,76 +1,95 @@
-import { motion } from 'framer-motion';
-
-const pageVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 }
-};
+import { motion } from "framer-motion";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Website MA As Shiroji",
-      description: "Website yang menampilkan info akademik, PPDB online, galeri, kalender akademik, dan profil sekolah dengan desain responsif.",
-      image: "/projek1.webp",
-      alt: "Tampilan Website MA As Shiroji",
-      link: "https://www.maassiroji.sch.id/"
-    },
-    {
-      title: "Aplikasi AppSheet PT GAP",
-      description: "Aplikasi pengelolaan data lembaga di Indonesia yang mendukung program bantuan pembangunan.",
-      image: "/projek2.webp",
-      alt: "Aplikasi AppSheet PT GAP",
-      link: "https://gapappsheets.com"
-    },
-    {
-      title: "Website Komunitas Bentang Dataran Tinggi",
-      description: "Situs komunitas yang fokus pada pelestarian dan pengembangan lingkungan dataran tinggi.",
-      image: "/projek3.webp",
-      alt: "Website Komunitas Bentang Dataran Tinggi",
-      link: "https://bentangdatarantinggi.web.app"
-    }
-  ];
-
   return (
     <motion.section
       id="projects"
-      className="py-20 px-6 bg-gray-50 text-gray-900"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      className="py-20 px-6 bg-gray-100 text-gray-900"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto text-center space-y-12">
+      <div className="max-w-6xl mx-auto text-center space-y-8">
         <h2 className="text-4xl font-extrabold">Projek Saya</h2>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map(({ title, description, image, alt, link }, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* Proyek 1 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <picture>
+              <source srcSet="/projek1.webp" type="image/webp" />
+              <img
+                src="/projek1.webp"
+                alt="Tampilan Website MA As Shiroji"
+                loading="lazy"
+                className="w-full h-auto object-cover rounded-lg mb-4"
+              />
+            </picture>
+            <h3 className="text-2xl font-semibold">Proyek 1</h3>
+            <p className="text-gray-600 mb-4">
+              Website MA As Shiroji menyajikan informasi akademik dan non-akademik, termasuk publikasi berita, PPDB online, galeri kegiatan, kalender akademik, dan profil sekolah, dengan tampilan responsif dan mudah diakses di berbagai perangkat.
+            </p>
+            <a
+              href="https://www.maassiroji.sch.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Lihat proyek Website MA As Shiroji"
+              className="text-primary hover:text-primary-light"
             >
-              <picture>
-                <source srcSet={image} type="image/webp" />
-                <img
-                  src={image}
-                  alt={alt}
-                  loading="lazy"
-                  className="w-full h-48 object-cover rounded-lg mb-5"
-                />
-              </picture>
-              <h3 className="text-2xl font-semibold mb-3">{title}</h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary font-medium hover:text-primary-dark"
-                aria-label={`Lihat proyek ${title}`}
-              >
-                Lihat Proyek &rarr;
-              </a>
-            </div>
-          ))}
+              Lihat Proyek
+            </a>
+          </div>
+
+          {/* Proyek 2 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <picture>
+              <source srcSet="/projek2.webp" type="image/webp" />
+              <img
+                src="/projek2.webp"
+                alt="Aplikasi AppSheet dari PT GAP"
+                loading="lazy"
+                className="w-full h-auto object-cover rounded-lg mb-4"
+              />
+            </picture>
+            <h3 className="text-2xl font-semibold">Proyek 2</h3>
+            <p className="text-gray-600 mb-4">
+              Aplikasi AppSheet untuk mengurus dan mengendalikan data dari 3800 lembaga di Indonesia. Projek ini merupakan program dari PT. GAP untuk mengurus lembaga yang mendapatkan bantuan pembangunan.
+            </p>
+            <a
+              href="https://gapappsheets.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Lihat aplikasi AppSheet PT GAP"
+              className="text-primary hover:text-primary-light"
+            >
+              Lihat Proyek
+            </a>
+          </div>
+
+          {/* Proyek 3 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <picture>
+              <source srcSet="/projek3.webp" type="image/webp" />
+              <img
+                src="/projek3.webp"
+                alt="Website Komunitas Bentang Dataran Tinggi"
+                loading="lazy"
+                className="w-full h-auto object-cover rounded-lg mb-4"
+              />
+            </picture>
+            <h3 className="text-2xl font-semibold">Proyek 3</h3>
+            <p className="text-gray-600 mb-4">
+              Website komunitas Bentang Dataran Tinggi menyajikan informasi berita, kegiatan, dan program untuk meningkatkan kualitas dan pelestarian lingkungan di dataran tinggi.
+            </p>
+            <a
+              href="https://bentangdatarantinggi.web.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Lihat website komunitas Bentang Dataran Tinggi"
+              className="text-primary hover:text-primary-light"
+            >
+              Lihat Proyek
+            </a>
+          </div>
         </div>
       </div>
     </motion.section>
