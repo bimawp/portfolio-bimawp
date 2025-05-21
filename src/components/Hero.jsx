@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import SEO from "./SEO";
 
-// Import gambar noise (letakkan di public/noise.webp atau gunakan link noise SVG/png gratis)
-const noiseUrl = "/noise.webp"; // pastikan file noise.webp ada di public/
+const noiseUrl = "/noise.webp"; // pastikan file ada di public/
 
 export default function Hero() {
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("Ads error:", e);
+    }
+  }, []);
+
   return (
     <>
       <SEO
@@ -23,25 +31,24 @@ export default function Hero() {
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Layer noise totol putih */}
+        {/* Noise background */}
         <div
           className="pointer-events-none absolute inset-0 z-40"
           style={{
             backgroundImage: `url(${noiseUrl})`,
-            opacity: 0.35, // lebih tinggi agar noise lebih kelihatan
+            opacity: 0.35,
             mixBlendMode: "screen",
-            backgroundSize: "300px 300px", // pastikan noise tidak terlalu kecil
+            backgroundSize: "300px 300px",
             backgroundRepeat: "repeat",
           }}
         ></div>
 
-        {/* Foto profil sebagai background kiri */}
+        {/* Foto profil background */}
         <picture>
           <source srcSet="/profil1.webp" type="image/webp" />
           <motion.img
             src="/profil1.webp"
             alt="Foto profil Bima Wiryadi Praja"
-            // loading="lazy"  <--- Hapus ini supaya gambar dimuat langsung
             initial={{ x: -60, opacity: 0 }}
             animate={{ x: 0, opacity: 0.6 }}
             transition={{ duration: 1 }}
@@ -52,17 +59,18 @@ export default function Hero() {
           />
         </picture>
 
-        {/* Overlay hitam transparan seluruh background */}
+        {/* Overlay gelap */}
         <div className="absolute inset-0 bg-black/60 z-20"></div>
 
-        {/* Overlay gradasi terang di kiri */}
+        {/* Overlay gradasi terang kiri */}
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-30 pointer-events-none"></div>
 
-        {/* Konten Utama */}
+        {/* Konten utama */}
         <main className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-4 max-w-6xl mx-auto">
-          {/* Spacer kiri agar teks selalu di kanan */}
+          {/* Spacer kiri */}
           <div className="hidden md:block md:w-1/2"></div>
-          {/* Teks di kanan */}
+
+          {/* Konten teks kanan */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center mt-8 md:mt-0 md:ml-12 text-gray-100">
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
@@ -72,6 +80,7 @@ export default function Hero() {
             >
               <span className="text-red-600">B</span>ima Wiryadi Praja
             </motion.h1>
+
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -83,6 +92,16 @@ export default function Hero() {
               <strong>teknologi digital</strong>.<br />
               Dikenal juga sebagai <strong>Bima WP</strong>.
             </motion.p>
+
+            {/* Iklan AdSense */}
+            <ins
+              className="adsbygoogle mt-4"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-6652570143802609"
+              data-ad-slot="1234567890" // GANTI DENGAN SLOT MILIKMU
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
           </div>
         </main>
       </motion.section>
