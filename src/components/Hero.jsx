@@ -1,6 +1,4 @@
-import dynamic from 'next/dynamic';
-const motion = dynamic(() => import('framer-motion').then(mod => mod.motion), { ssr: false });
-
+import { motion } from "framer-motion";
 import SEO from "./SEO";
 
 // Import gambar noise (letakkan di public/noise.webp atau gunakan link noise SVG/png gratis)
@@ -30,7 +28,7 @@ export default function Hero() {
           className="pointer-events-none absolute inset-0 z-40"
           style={{
             backgroundImage: `url(${noiseUrl})`,
-            opacity: 0.35,
+            opacity: 0.35, // lebih tinggi agar noise lebih kelihatan
             mixBlendMode: "screen",
             backgroundSize: "80px 80px", // lebih halus dan natural
             backgroundRepeat: "repeat",
