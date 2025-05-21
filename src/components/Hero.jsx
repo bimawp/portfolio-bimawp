@@ -11,7 +11,7 @@ export default function Hero() {
         title="Bima Wiryadi Praja | Mahasiswa Sistem Informasi"
         description="Profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi STMIK Mardira Indonesia yang memiliki minat dalam pengembangan web dan teknologi digital."
         url="https://www.bimawiryadipraja.my.id"
-        image="https://www.bimawiryadipraja.my.id/profil1.jpg"
+        image="https://www.bimawiryadipraja.my.id/profil1.png"
       />
 
       <motion.section
