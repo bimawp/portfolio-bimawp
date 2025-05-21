@@ -19,19 +19,19 @@ import Education from './components/Education';
 function ScrollHandler() {
   const location = useLocation();
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const scrollToId = params.get("scrollTo");
-
-    if (scrollToId && location.pathname === "/") {
-      const el = document.getElementById(scrollToId);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
+useEffect(() => {
+  if (location.hash) {
+    const id = location.hash.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => {
+        const yOffset = -120; // naikkan offset sesuai tinggi navbar + jarak ekstra
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 800);
     }
-  }, [location]);
+  }
+}, [location]);
 
   return null;
 }
