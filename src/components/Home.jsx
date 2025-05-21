@@ -15,20 +15,15 @@ export default function Home() {
   const location = useLocation();
 
         useEffect(() => {
-          if (location.hash) {
-            const id = location.hash.replace('#', '');
-            const el = document.getElementById(id);
-            if (el) {
-              const navbarHeight = 96; // Sesuaikan dengan tinggi navbar Anda
-              const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-              const offsetPosition = elementPosition - navbarHeight;
+          const params = new URLSearchParams(location.search);
+          const scrollTo = params.get("scrollTo");
 
+          if (scrollTo) {
+            const element = document.getElementById(scrollTo);
+            if (element) {
               setTimeout(() => {
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: 'smooth',
-                });
-              }, 300); // Tunggu hingga komponen dirender
+                element.scrollIntoView({ behavior: "smooth" });
+              }, 100); // kasih delay sedikit biar konten sempat dimount
             }
           }
         }, [location]);
