@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SEO from './SEO';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -15,23 +16,24 @@ export default function Home() {
   const location = useLocation();
   const contactRef = useRef(null);
 
-useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const scrollTo = params.get("scrollTo");
+  const navigate = useNavigate(); // ⬅️ Tambahkan ini
 
-  if (scrollTo) {
-    const element = document.getElementById(scrollTo);
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const scrollTo = params.get("scrollTo");
 
-        // Hapus parameter scrollTo dari URL setelah scroll selesai
-        const newUrl = window.location.origin + window.location.pathname;
-        window.history.replaceState({}, document.title, newUrl);
-      }, 500); // bisa disesuaikan delaynya
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+
+          // Hapus query param via React Router
+          navigate(location.pathname, { replace: true }); // ⬅️ Ini yang bikin ?scrollTo=contact hilang
+        }, 500);
+      }
     }
-  }
-}, [location]);
+  }, [location, navigate]);
 
 
   return (
