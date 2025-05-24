@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /
-Sitemap: https://www.bimawiryadipraja.my.id/sitemap.xml
+Disallow:
+
+Sitemap: https://bimawiryadipraja.my.id/sitemap.xml
