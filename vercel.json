@@ -1,8 +1,4 @@
 {
-  "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
   "redirects": [
     {
       "source": "/(.*)",
@@ -12,7 +8,18 @@
           "value": "portfolio-bimawp.vercel.app"
         }
       ],
-      "destination": "https://bimawiryadipraja.my.id/$1",
+      "destination": "https://bimawiryadipraja.my.id/:1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bimawiryadipraja.my.id"
+        }
+      ],
+      "destination": "https://bimawiryadipraja.my.id/:1",
       "permanent": true
     }
   ]
