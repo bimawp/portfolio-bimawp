@@ -1,25 +1,25 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "portfolio-bimawp.vercel.app"
         }
       ],
-      "destination": "https://bimawiryadipraja.my.id/:1",
+      "destination": "https://bimawiryadipraja.my.id/:path*",
       "permanent": true
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "www.bimawiryadipraja.my.id"
         }
       ],
-      "destination": "https://bimawiryadipraja.my.id/:1",
+      "destination": "https://bimawiryadipraja.my.id/:path*",
       "permanent": true
     }
   ]
