@@ -47,7 +47,7 @@ export default function About() {
               Saya selalu mencari solusi kreatif untuk masalah yang kompleks, dan saya percaya bahwa teknologi dapat menciptakan pengalaman yang berdampak positif bagi penggunanya.
             </p>
             <p>
-              Saya senang bekerja di proyek yang menantang dan berusaha untuk terus belajar dan berkembang di dunia teknologi. Selain itu, saya juga tertarik pada pengelolaan database dan pengembangan aplikasi full-stack. Saya percaya bahwa dengan pendekatan yang tepat, teknologi dapat memberikan solusi inovatif yang bermanfaat bagi masyarakat.
+              Saya senang bekerja di projek yang menantang dan berusaha untuk terus belajar dan berkembang di dunia teknologi. Selain itu, saya juga tertarik pada pengelolaan database dan pengembangan aplikasi full-stack. Saya percaya bahwa dengan pendekatan yang tepat, teknologi dapat memberikan solusi inovatif yang bermanfaat bagi masyarakat.
             </p>
             <p>
               Ketika tidak bekerja, saya menikmati mengeksplorasi tren teknologi terbaru dan membangun proyek-proyek pribadi yang memperkaya keterampilan saya. Saya selalu terbuka untuk kolaborasi dan kesempatan untuk berkembang lebih jauh dalam dunia pengembangan web.
