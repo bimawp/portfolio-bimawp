@@ -49,10 +49,10 @@ export default function Hero() {
           <motion.img
             src="/profil1.webp"
             alt="Foto profil Bima Wiryadi Praja"
-            initial={{ x: -60, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.6 }}
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.7 }}
             transition={{ duration: 1 }}
-            className="absolute md:static left-0 top-0 w-full h-full md:w-1/2 object-cover object-center grayscale brightness-100 z-10"
+            className="absolute md:static left-0 top-0 w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-center grayscale brightness-100 z-10"
             style={{ mixBlendMode: "lighten" }}
           />
         </picture>
@@ -64,30 +64,37 @@ export default function Hero() {
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-30 pointer-events-none"></div>
 
         {/* Konten utama */}
-        <main className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white">
-          {/* Spacer kiri untuk desktop */}
-          <div className="hidden md:block md:w-1/2"></div>
-
+        <main
+          className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
+          style={{ gap: "0.25rem" }}
+        >
           {/* Konten teks */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+          <div
+            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
+            style={{ marginLeft: "-1rem" }} // margin negatif supaya deket banget ke foto
+          >
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 1 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
+              className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
             >
-              <span className="text-red-600">B</span>ima Wiryadi Praja
+              <span className="text-red-600 text-7xl md:text-8xl font-extrabold align-middle">
+                B
+              </span>
+              ima Wiryadi Praja
             </motion.h1>
 
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="text-sm sm:text-base md:text-lg leading-relaxed max-w-lg"
+              className="text-lg md:text-xl leading-relaxed max-w-lg"
             >
-              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat dalam{" "}
-              <strong>pengembangan web</strong> &{" "}
-              <strong>teknologi digital</strong>.<br />
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
+              dalam{" "}
+              <strong>pengembangan web</strong> & <strong>teknologi digital</strong>.
+              <br />
               Dikenal juga sebagai <strong>Bima WP</strong>.
             </motion.p>
 

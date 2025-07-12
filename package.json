@@ -8,13 +8,17 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "framer-motion": "^12.10.0",
     "lucide-react": "^0.507.0",
+    "pdfjs-dist": "^3.11.174",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
+    "react-pdf": "^6.2.2",
     "react-router-dom": "^7.6.0",
     "react-scroll": "^1.9.3"
   },

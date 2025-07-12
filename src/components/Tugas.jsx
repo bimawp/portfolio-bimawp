@@ -5,7 +5,7 @@ import SEO from './SEO';
 export default function Tugas() {
   const tugasList = [
     { path: '/tugas/Tugas1', title: 'Tugas 1: Logika First Order' },
-    //{ path: '/tugas/Tugas2', title: 'Tugas 2: Menuliskan Ekspresi dalam Logika' },
+    { path: '/tugas/Tugas2', title: 'Tugas 2: Materi Jurnal Sistem Pakar' },
     //{ path: '/tugas/3', title: 'Tugas 3: Konversi Kalimat ke Logika' },
     //{ path: '/tugas/4', title: 'Tugas 4: Konversi Kalimat ke Logika' },
     // Tambahkan tugas lainnya di sini
