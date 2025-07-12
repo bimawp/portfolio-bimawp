@@ -70,7 +70,7 @@ export default function Hero() {
         >
           {/* Konten teks */}
           <div
-            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[30vh] md:pt-0"
+            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[36vh] md:pt-0"
           >
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
