@@ -68,14 +68,14 @@ export default function Hero() {
           className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
           style={{ gap: "0.25rem" }}
         >
-          
           {/* Konten teks */}
           <div
-            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
-            // margin negatif hanya di desktop
+            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mt-12 md:mt-0"
             style={{
               marginLeft: "0",
-              ...(window.innerWidth >= 768 ? { marginLeft: "-1rem" } : {}),
+              ...(typeof window !== "undefined" && window.innerWidth >= 768
+                ? { marginLeft: "-1rem" }
+                : {}),
             }}
           >
             <motion.h1
@@ -97,8 +97,7 @@ export default function Hero() {
               className="text-lg md:text-xl leading-relaxed max-w-lg"
             >
               Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
-              dalam{" "}
-              <strong>pengembangan web</strong> & <strong>teknologi digital</strong>.
+              dalam <strong>pengembangan web</strong> & <strong>teknologi digital</strong>.
               <br />
               Dikenal juga sebagai <strong>Bima WP</strong>.
             </motion.p>
