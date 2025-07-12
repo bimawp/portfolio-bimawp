@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 0.7 }}
             transition={{ duration: 1 }}
-            className="absolute md:static left-0 top-[5vh] w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-top grayscale brightness-100 z-10"
+            className="absolute md:static left-0 top-[0vh] w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-top grayscale brightness-100 z-10"
             style={{ mixBlendMode: "lighten" }}
           />
         </picture>
