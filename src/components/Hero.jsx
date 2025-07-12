@@ -45,14 +45,22 @@ export default function Hero() {
 
         {/* Background foto */}
         <picture>
-          <source srcSet="/profil1.webp" type="image/webp" />
           <motion.img
             src="/profil1.webp"
             alt="Foto profil Bima Wiryadi Praja"
             initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 0.7 }}
             transition={{ duration: 1 }}
-            className="absolute md:static left-0 top-[0vh] w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-top z-10"
+            className="
+              absolute 
+              left-0 top-[0vh] w-96 h-96
+              md:static
+              md:w-[36rem] md:h-[36rem] 
+              md:ml-auto
+              object-cover object-top grayscale brightness-100 
+              z-10
+            "
+            style={{ mixBlendMode: "lighten" }}
           />
         </picture>
 
@@ -68,7 +76,9 @@ export default function Hero() {
           style={{ gap: "0.25rem" }}
         >
           {/* Konten teks */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[60vh] md:pt-0">
+          <div
+            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[60vh] md:pt-0"
+          >
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -87,11 +97,11 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-lg md:text-xl leading-relaxed max-w-lg"
             >
-              kamu udah capek ya? sini aku peluk.
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
+              dalam <strong>pengembangan web</strong> &{" "}
+              <strong>teknologi digital</strong>.
               <br />
-              jangan khawatir, kamu gak sendiri.
-              <br />
-              aku di sini buat kamu. 💗
+              Dikenal juga sebagai <strong>Bima WP</strong>.
             </motion.p>
 
             {/* AdSense */}
