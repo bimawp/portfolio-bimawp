@@ -24,7 +24,7 @@ export default function Hero() {
 
       <motion.section
         id="hero"
-        className="relative w-full min-h-[80vh] md:h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
+        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
         aria-label="Profil Utama"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 0.7 }}
             transition={{ duration: 1 }}
-            className="w-40 h-40 md:w-[28rem] md:h-[28rem] object-cover object-center grayscale brightness-100 z-10 mx-auto md:static absolute left-0 top-0"
+            className="absolute md:static left-0 top-0 w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-center grayscale brightness-100 z-10"
             style={{ mixBlendMode: "lighten" }}
           />
         </picture>
@@ -68,11 +68,26 @@ export default function Hero() {
           className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
           style={{ gap: "0.25rem" }}
         >
+          {/* Foto profil */}
+          <div className="w-full flex justify-center md:w-1/2 md:justify-start mb-6 md:mb-0">
+            <motion.img
+              src="/profil1.webp"
+              alt="Foto profil Bima Wiryadi Praja"
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 0.7 }}
+              transition={{ duration: 1 }}
+              className="w-40 h-40 md:w-[28rem] md:h-[28rem] object-cover object-center grayscale brightness-100 z-10 mx-auto md:static"
+              style={{ mixBlendMode: "lighten" }}
+            />
+          </div>
           {/* Konten teks */}
           <div
             className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
-            // Hapus marginLeft negatif di mobile
-            style={{ marginLeft: "0" }}
+            // margin negatif hanya di desktop
+            style={{
+              marginLeft: "0",
+              ...(window.innerWidth >= 768 ? { marginLeft: "-1rem" } : {}),
+            }}
           >
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
