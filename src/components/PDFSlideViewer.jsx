@@ -33,8 +33,8 @@ export default function PDFViewer({ fileUrl }) {
           <Page
             pageNumber={pageNumber}
             width={width}
-            renderTextLayer={false}
-            renderAnnotationLayer={false}
+            renderTextLayer={false}       // matikan teks layer
+            renderAnnotationLayer={false} // matikan annotation layer (opsional)
           />
         )}
       </Document>
@@ -43,7 +43,7 @@ export default function PDFViewer({ fileUrl }) {
         <div className="text-red-500 mt-2">Gagal memuat PDF: {error}</div>
       )}
 
-      <div className="flex gap-4 mt-4 items-center">
+      <div className="flex gap-2 mt-4">
         <button
           onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
           disabled={pageNumber <= 1}
@@ -51,20 +51,16 @@ export default function PDFViewer({ fileUrl }) {
         >
           Prev
         </button>
-
-        <div className="flex flex-col items-center">
-          <span className="mb-1">
-            {pageNumber} / {numPages || "-"}
-          </span>
-          <button
-            onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
-            disabled={pageNumber >= numPages}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
-          >
-            Next
-          </button>
-        </div>
-
+        <span>
+          {pageNumber} / {numPages || "-"}
+        </span>
+        <button
+          onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
+          disabled={pageNumber >= numPages}
+          className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
+        >
+          Next
+        </button>
         <a
           href={fileUrl}
           download
@@ -74,5 +70,5 @@ export default function PDFViewer({ fileUrl }) {
         </a>
       </div>
     </div>
-);
+  );
 }
