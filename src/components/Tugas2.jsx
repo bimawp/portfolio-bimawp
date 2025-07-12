@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import PDFViewer from "./PDFViewer"; // pastikan path-nya benar
+import PDFViewer from "./PDFSlideViewer"; // pastikan path-nya benar
 
 export default function Tugas2() {
   return (
