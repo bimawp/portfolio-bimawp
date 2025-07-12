@@ -24,16 +24,16 @@ export default function Hero() {
 
       <motion.section
         id="hero"
-        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
+        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
         aria-label="Profil Utama"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Noise background */}
+        {/* Background noise */}
         <div
-          className="pointer-events-none absolute inset-0 z-40"
+          className="pointer-events-none absolute inset-0 z-10"
           style={{
             backgroundImage: `url(${noiseUrl})`,
             opacity: 0.35,
@@ -43,20 +43,6 @@ export default function Hero() {
           }}
         ></div>
 
-        {/* Background foto */}
-        <picture>
-          <source srcSet="/profil1.webp" type="image/webp" />
-          <motion.img
-            src="/profil1.webp"
-            alt="Foto profil Bima Wiryadi Praja"
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.7 }}
-            transition={{ duration: 1 }}
-            className="absolute md:static left-0 top-[0vh] w-96 h-96 md:w-[28rem] md:h-[28rem] object-cover object-top grayscale brightness-100 z-10"
-            style={{ mixBlendMode: "lighten" }}
-          />
-        </picture>
-
         {/* Overlay gelap */}
         <div className="absolute inset-0 bg-black/60 z-20"></div>
 
@@ -64,42 +50,54 @@ export default function Hero() {
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-30 pointer-events-none"></div>
 
         {/* Konten utama */}
-        <main
-          className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
-          style={{ gap: "0.25rem" }}
-        >
+        <main className="relative z-40 flex flex-col md:flex-row items-center justify-center gap-8 px-6 sm:px-8 max-w-6xl w-full mx-auto py-16">
+          {/* Gambar profil */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+            <picture>
+              <source srcSet="/profil1.webp" type="image/webp" />
+              <motion.img
+                src="/profil1.webp"
+                alt="Foto Bima Wiryadi Praja"
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 0.75 }}
+                transition={{ duration: 1 }}
+                className="w-40 sm:w-52 md:w-72 lg:w-80 object-cover object-top grayscale rounded-lg shadow-xl"
+                style={{ mixBlendMode: "lighten" }}
+              />
+            </picture>
+          </div>
+
           {/* Konten teks */}
-          <div
-            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[60vh] md:pt-0"
-          >
+          <div className="w-full md:w-1/2 text-center md:text-left">
             <motion.h1
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 1 }}
-              className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg"
             >
-              <span className="text-red-600 text-7xl md:text-8xl font-extrabold align-middle">
+              <span className="text-red-600 text-6xl sm:text-7xl font-extrabold align-middle">
                 B
               </span>
-              ima Wiryadi Praja
+              ima Wiryadi <br className="md:hidden" />
+              Praja
             </motion.h1>
 
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="text-lg md:text-xl leading-relaxed max-w-lg"
+              className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-lg mx-auto md:mx-0"
             >
-              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
-              dalam <strong>pengembangan web</strong> &{" "}
+              Mahasiswa Sistem Informasi STMIK Mardira Indonesia<br />
+              dengan minat dalam <strong>pengembangan web</strong> &{" "}
               <strong>teknologi digital</strong>.
               <br />
               Dikenal juga sebagai <strong>Bima WP</strong>.
             </motion.p>
 
-            {/* AdSense */}
+            {/* Iklan */}
             <ins
-              className="adsbygoogle mt-4"
+              className="adsbygoogle mt-4 block"
               style={{ display: "block" }}
               data-ad-client="ca-pub-6652570143802609"
               data-ad-slot="1234567890"
