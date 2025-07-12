@@ -1,5 +1,5 @@
 // src/components/PDFViewer.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -7,7 +7,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function PDFViewer({ fileUrl }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [width, setWidth] = useState(600); // default width
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    function updateWidth() {
+      if (typeof window !== "undefined") {
+        setWidth(Math.min(window.innerWidth * 0.9, 800));
+      }
+    }
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -18,26 +30,26 @@ export default function PDFViewer({ fileUrl }) {
     setError(error.message);
   }
 
-  // Lebar page supaya responsive dan max 800px
-  const width =
-    typeof window !== "undefined" ? Math.min(window.innerWidth * 0.9, 800) : 800;
-
   return (
     <div className="w-full flex flex-col items-center px-4">
-      <Document
-        file={fileUrl}
-        onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={onDocumentLoadError}
-      >
-        {numPages && (
-          <Page
-            pageNumber={pageNumber}
-            width={width}
-            renderTextLayer={false}       // matikan teks layer
-            renderAnnotationLayer={false} // matikan annotation layer (opsional)
-          />
-        )}
-      </Document>
+      {/* Wrapper div penting supaya textLayer tidak keluar */}
+      <div className="relative overflow-hidden rounded border border-gray-300 shadow max-w-3xl w-full">
+        <Document
+          file={fileUrl}
+          onLoadSuccess={onDocumentLoadSuccess}
+          onLoadError={onDocumentLoadError}
+          options={{ disableTextLayer: false }}
+        >
+          {numPages && (
+            <Page
+              pageNumber={pageNumber}
+              width={width}
+              renderTextLayer={true}
+              renderAnnotationLayer={false}
+            />
+          )}
+        </Document>
+      </div>
 
       {error && (
         <div className="text-red-500 mt-2">Gagal memuat PDF: {error}</div>
