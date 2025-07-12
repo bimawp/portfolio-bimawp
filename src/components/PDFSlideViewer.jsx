@@ -18,29 +18,26 @@ export default function PDFViewer({ fileUrl }) {
     setError(error.message);
   }
 
+  // Lebar page supaya responsive dan max 800px
+  const width =
+    typeof window !== "undefined" ? Math.min(window.innerWidth * 0.9, 800) : 800;
+
   return (
     <div className="w-full flex flex-col items-center px-4">
-      {/* Bungkus Document dengan overflow-hidden dan max-w agar teks tidak keluar */}
-      <div className="w-full max-w-3xl mx-auto overflow-hidden rounded border border-gray-300 shadow relative">
-        <Document
-          file={fileUrl}
-          onLoadSuccess={onDocumentLoadSuccess}
-          onLoadError={onDocumentLoadError}
-          className="overflow-hidden"
-        >
-          {numPages && (
-            <Page
-              pageNumber={pageNumber}
-              width={
-                typeof window !== "undefined"
-                  ? Math.min(window.innerWidth * 0.9, 800)
-                  : 800
-              }
-              className="relative overflow-hidden rounded"
-            />
-          )}
-        </Document>
-      </div>
+      <Document
+        file={fileUrl}
+        onLoadSuccess={onDocumentLoadSuccess}
+        onLoadError={onDocumentLoadError}
+      >
+        {numPages && (
+          <Page
+            pageNumber={pageNumber}
+            width={width}
+            renderTextLayer={false}       // matikan teks layer
+            renderAnnotationLayer={false} // matikan annotation layer (opsional)
+          />
+        )}
+      </Document>
 
       {error && (
         <div className="text-red-500 mt-2">Gagal memuat PDF: {error}</div>
