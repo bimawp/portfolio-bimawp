@@ -15,6 +15,7 @@ import ArtikelDetail from './components/ArtikelDetail';
 import Article from './components/Article';
 import Footer from './components/Footer';
 import Education from './components/Education';
+import Tugas2 from "./components/Tugas2"; // pastikan import ini ada
 
 function ScrollHandler() {
   const location = useLocation();
@@ -68,6 +69,8 @@ function AnimatedRoutes() {
         <Route path="/tugas/:id" element={<TaskDetail />} />
         <Route path="/artikel/:slug" element={<ArtikelDetail />} />
         <Route path="/article/:slug" element={<Article />} />
+        <Route path="/tugas/Tugas2" element={<Tugas2 />} />
+
 
         {/* 404 */}
         <Route

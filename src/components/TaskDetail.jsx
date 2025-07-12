@@ -138,10 +138,12 @@ export default function TaskDetail() {
 
       {/* Tugas 2: PDF perslide saja */}
       { id === "Tugas2" && (
-        <div className="mb-8 p-4 bg-blue-50 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-4">Presentasi Tugas 2 (PDF)</h3>
-          <PDFViewer fileUrl="/ppt-spakar.pdf" />
-        </div>
+        <main>
+          <section className="mb-8 p-4 bg-blue-50 rounded-lg">
+            <h1 className="text-2xl font-semibold mb-4">Presentasi Tugas 2 (PDF)</h1>
+            <PDFViewer fileUrl="/ppt-spakar.pdf" />
+          </section>
+        </main>
       )}
     </div>
   );
