@@ -68,18 +68,7 @@ export default function Hero() {
           className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
           style={{ gap: "0.25rem" }}
         >
-          {/* Foto profil */}
-          <div className="w-full flex justify-center md:w-1/2 md:justify-start mb-6 md:mb-0">
-            <motion.img
-              src="/profil1.webp"
-              alt="Foto profil Bima Wiryadi Praja"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 0.7 }}
-              transition={{ duration: 1 }}
-              className="w-40 h-40 md:w-[28rem] md:h-[28rem] object-cover object-center grayscale brightness-100 z-10 mx-auto md:static"
-              style={{ mixBlendMode: "lighten" }}
-            />
-          </div>
+          
           {/* Konten teks */}
           <div
             className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
