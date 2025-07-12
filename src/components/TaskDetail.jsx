@@ -10,9 +10,9 @@ export default function TaskDetail() {
   return (
     <div className="pt-24 px-6 max-w-4xl mx-auto">
       <SEO
-        title={`Detail Tugas ${id} – Bima Wiryadi Praja`}
-        description={`Penjelasan detail tugas ${id} oleh Bima Wiryadi Praja.`}
-        url={`https://www.bimawiryadipraja.my.id/tugas/${id}`}
+        title={id === "Tugas2" ? "Tugas 2 – Presentasi Sistem Pakar" : `Detail Tugas ${id} – Bima Wiryadi Praja`}
+        description={id === "Tugas2" ? "Presentasi Tugas 2 berupa PDF slide tentang Sistem Pakar oleh Bima Wiryadi Praja. Lihat dan unduh materi presentasi di sini." : `Penjelasan detail tugas ${id} oleh Bima Wiryadi Praja.`}
+        url={id === "Tugas2" ? "https://www.bimawiryadipraja.my.id/tugas/Tugas2" : `https://www.bimawiryadipraja.my.id/tugas/${id}`}
         image="https://www.bimawiryadipraja.my.id/profil1.webp"
       />
       <h2 className="text-3xl font-semibold mb-8">Detail Tugas ID: {id}</h2>
