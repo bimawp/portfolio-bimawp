@@ -1,28 +1,30 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const questions = [
-  { text: "Kamu suka rame-rame dan ngobrol banyak orang gak?", type: "E" },
-  { text: "Kalau capek, kamu lebih milih sendiri aja ya?", type: "I" },
-  { text: "Kamu sering mulai ngobrol duluan gak sih?", type: "E" },
-  { text: "Biasanya, kamu mikir dulu sebelum ngomong?", type: "I" },
-  { text: "Suka jadi pusat perhatian gak nih?", type: "E" },
-  { text: "Kamu suka banget rencanain segala hal sampai detail?", type: "AN" },
-  { text: "Ikutin perasaan pas ambil keputusan, kamu?", type: "EM" },
-  { text: "Suka pertimbangin risiko dulu sebelum bertindak?", type: "AN" },
-  { text: "Mudah tersentuh sama film atau cerita sedih gak?", type: "EM" },
-  { text: "Suka banget diskusi soal ide-ide baru?", type: "AN" },
-  { text: "Kamu ekspresif banget ya?", type: "EM" },
-  { text: "Suka banget ketemu banyak orang?", type: "E" },
-  { text: "Suka banget waktu santai sendiri?", type: "I" },
-  { text: "Suka banget perbaiki hal yang salah?", type: "AN" },
-  { text: "Kamu orang yang peka dan empati banget?", type: "EM" },
-  { text: "Suka spontan dan nyobain hal baru gak?", type: "E" },
-  { text: "Suka rencana matang daripada dadakan?", type: "AN" },
-  { text: "Lebih suka simpen perasaan daripada ungkapin?", type: "I" },
-  { text: "Gampang banget terinspirasi sama orang lain?", type: "EM" },
-  { text: "Nyaman banget bahas ide-ide seru?", type: "AN" },
+  { text: "Kamu nyaman ngobrol sama orang yang baru dikenal?", type: "E" },
+  { text: "Kamu suka banget ada di keramaian atau acara sosial?", type: "E" },
+  { text: "Abis banyak ngobrol, kamu ngerasa perlu waktu sendiri?", type: "I" },
+  { text: "Kamu lebih suka mikir dan nikmatin waktu sendiri?", type: "I" },
+  { text: "Kamu ambil keputusan pakai logika dan data?", type: "AN" },
+  { text: "Kamu suka banget mikirin semua kemungkinan sebelum bertindak?", type: "AN" },
+  { text: "Kamu sering nurutin kata hati saat bikin pilihan?", type: "EM" },
+  { text: "Perasaan orang lain sering ngaruh ke keputusan kamu?", type: "EM" },
+  { text: "Kamu suka banget debat sehat dan diskusi terbuka?", type: "E" },
+  { text: "Kamu lebih suka dengerin daripada ngomong?", type: "I" },
+  { text: "Kamu gampang ngerti perasaan orang yang lagi susah?", type: "EM" },
+  { text: "Buat kamu, emosi itu bagian penting dalam hidup?", type: "EM" },
+  { text: "Kamu lebih percaya logika daripada perasaan?", type: "AN" },
+  { text: "Kamu betah banget di tempat yang ramai dan penuh aktivitas?", type: "E" },
+  { text: "Kamu bisa lebih fokus kalau sendirian?", type: "I" },
+  { text: "Kamu suka banget hal-hal yang berhubungan sama data atau angka?", type: "AN" },
+  { text: "Kamu ikut sedih kalau liat orang lain sedih?", type: "EM" },
+  { text: "Kamu seneng jadi pusat perhatian?", type: "E" },
+  { text: "Kamu lebih suka suasana yang tenang daripada yang ramai?", type: "I" },
+  { text: "Menurut kamu, keputusan yang bagus harus lewat analisis dulu?", type: "AN" },
 ];
+
 
 const results = {
   E: {
@@ -62,12 +64,27 @@ export default function Tugas3Friendly() {
   const [scores, setScores] = useState({ E: 0, I: 0, AN: 0, EM: 0 });
   const [showResult, setShowResult] = useState(false);
   const [isAnswering, setIsAnswering] = useState(false);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [hasStarted, setHasStarted] = useState(false);
 
   const finalResult = useMemo(() => {
     const maxScore = Math.max(...Object.values(scores));
     const topTypes = Object.keys(scores).filter((t) => scores[t] === maxScore);
     return topTypes.length === 1 ? results[topTypes[0]] : results.A;
   }, [scores]);
+
+  // Text untuk share yang akan dikirim ke WA / IG bio
+  const shareText = encodeURIComponent(
+    `Hai, aku baru saja mengikuti Tes Kepribadian dan hasilku adalah *${finalResult.title}*.\n${finalResult.description}\n\nCoba tes juga di sini!`
+  );
+
+  // Link WhatsApp share (bisa ubah nomor atau hapus nomor kalau mau direct chat)
+  const whatsappLink = `https://wa.me/?text=${shareText}`;
+
+  // Instagram tidak punya URL share khusus, biasanya share bio atau story manual
+  // Jadi kita buat link ke IG profile dan copy text manual
+  const instagramLink = "https://instagram.com/yourinstagramhandle"; // Ganti dengan IG kamu
 
   const handleAnswer = (answer) => {
     if (isAnswering) return;
@@ -90,138 +107,217 @@ export default function Tugas3Friendly() {
       }
 
       setIsAnswering(false);
-    }, 450);
+    }, 400);
   };
 
   const restart = () => {
     setStep(0);
     setScores({ E: 0, I: 0, AN: 0, EM: 0 });
     setShowResult(false);
+    setHasStarted(false);
+    setName("");
+    setAge("");
   };
 
-  const testUrl = "https://contoh.link/teskepribadian";
-
-  const shareText = `Hasil tes kepribadianku: ${finalResult.title}.\n${finalResult.description}\n"${finalResult.quote}"\nCoba deh tesnya di sini: ${testUrl}`;
-
-  const encodedShareText = encodeURIComponent(shareText);
-
   return (
-    <main className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-200 to-pink-100 p-8 flex flex-col items-center">
-      <div className="max-w-3xl w-full bg-white rounded-3xl shadow-2xl p-10">
-        {/* Header */}
-        <section className="mb-12 text-center">
-          <h1 className="text-4xl font-extrabold text-indigo-700 mb-2 tracking-wide">
-            Sistem Pakar Kepribadian
-          </h1>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Sistem ini menentukan kepribadianmu berdasarkan jawaban-jawaban sederhana.
-          </p>
-        </section>
+    <>
+      <Helmet>
+        <title>Tes Kepribadian | Sistem Pakar</title>
+        <meta
+          name="description"
+          content="Tes kepribadian online untuk mengenali tipe kepribadian kamu: Ekstrovert, Introvert, Analitis, atau Emosional."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* Tes atau Hasil */}
-        <section className="relative min-h-[320px]">
-          <AnimatePresence mode="wait">
-            {!showResult ? (
-              <motion.div
+        {/* Open Graph */}
+        <meta property="og:title" content="Tes Kepribadian | Sistem Pakar" />
+        <meta
+          property="og:description"
+          content="Tes kepribadian online untuk mengenali tipe kepribadian kamu."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content="/social-preview.png" /> {/* sesuaikan */}
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Tes Kepribadian | Sistem Pakar" />
+        <meta
+          name="twitter:description"
+          content="Tes kepribadian online untuk mengenali tipe kepribadian kamu."
+        />
+        <meta name="twitter:image" content="/social-preview.png" /> {/* sesuaikan */}
+      </Helmet>
+
+      <main className="min-h-screen bg-gradient-to-br from-purple-200 via-pink-100 to-blue-100 p-4 sm:p-6 flex items-center justify-center">
+        <section className="w-full max-w-screen-sm bg-white rounded-3xl shadow-2xl p-6 sm:p-8">
+          <header className="text-center mb-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-purple-700">
+              Sistem Pakar Kepribadian
+            </h1>
+            <p className="text-sm text-gray-600 mt-2">
+              Temukan tipe kepribadianmu melalui tes singkat ini.
+            </p>
+          </header>
+
+          {/* Form */}
+          {!hasStarted && !showResult && (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (name.trim() && age.trim()) setHasStarted(true);
+              }}
+              className="space-y-4"
+              aria-label="Form Identitas Pengguna"
+            >
+              <div>
+                <label className="block text-gray-700">Nama</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Contoh: Bima"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-400"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700">Umur</label>
+                <input
+                  type="number"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  placeholder="Contoh: 20"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-400"
+                  required
+                  min={1}
+                />
+              </div>
+
+              <div className="text-center pt-4">
+                <button
+                  type="submit"
+                  className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-full w-full"
+                >
+                  Mulai Tes
+                </button>
+              </div>
+            </form>
+          )}
+
+          {/* Pertanyaan */}
+          {hasStarted && !showResult && (
+            <AnimatePresence mode="wait">
+              <motion.article
                 key={step}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.45, ease: "easeInOut" }}
+                transition={{ duration: 0.45 }}
                 className="text-center"
               >
-                <h2 className="text-3xl font-semibold text-indigo-700 mb-4 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-semibold text-purple-700 mb-4">
                   Pertanyaan {step + 1} dari {questions.length}
                 </h2>
-                <p className="text-xl font-medium text-gray-800 mb-10 px-6 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-800 mb-8 px-2 sm:px-6 leading-relaxed">
                   {questions[step].text}
                 </p>
 
-                <div className="flex justify-center gap-12">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-10 mb-6">
                   <button
                     onClick={() => handleAnswer("yes")}
                     disabled={isAnswering}
-                    className="relative inline-flex items-center justify-center rounded-full bg-indigo-600 px-10 py-4 font-semibold text-white shadow-lg transition duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 disabled:opacity-60 disabled:pointer-events-none select-none"
+                    className="rounded-full bg-purple-600 px-6 py-3 font-semibold text-white hover:bg-purple-700 transition disabled:opacity-50"
                   >
                     👍 Ya
-                    <span className="ml-2 text-xl">✔️</span>
                   </button>
                   <button
                     onClick={() => handleAnswer("no")}
                     disabled={isAnswering}
-                    className="relative inline-flex items-center justify-center rounded-full bg-gray-300 px-10 py-4 font-semibold text-gray-800 shadow-md transition duration-300 hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-400 disabled:opacity-60 disabled:pointer-events-none select-none"
+                    className="rounded-full bg-gray-300 px-6 py-3 font-semibold text-gray-800 hover:bg-gray-400 transition disabled:opacity-50"
                   >
                     👎 Tidak
-                    <span className="ml-2 text-xl">✖️</span>
                   </button>
                 </div>
 
-                {/* Progress Bar */}
-                <div className="mt-14 h-4 w-full rounded-full bg-indigo-100 shadow-inner overflow-hidden">
+                <div className="h-3 w-full bg-purple-100 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-indigo-600"
+                    className="h-full bg-purple-600"
                     initial={{ width: 0 }}
                     animate={{ width: `${((step + 1) / questions.length) * 100}%` }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 0.4 }}
                   />
                 </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="result"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-center max-w-xl mx-auto px-6"
-              >
-                <h3
-              className={`text-4xl font-extrabold text-${finalResult.color}-700 mb-4 tracking-wide`}
-            >
-              {finalResult.title}
-            </h3>
-            <p className="text-lg text-gray-700 mb-4">
-              {finalResult.description}
-            </p>
-            <blockquote className="italic text-gray-600 border-l-4 border-gray-400 pl-4 text-sm mb-6">
-              "{finalResult.quote}"
-            </blockquote>
+              </motion.article>
+            </AnimatePresence>
+          )}
 
-            <button
-              onClick={restart}
-              className="mt-6 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 transition"
-            >
-              🔁 Ulangi Tes
-            </button>
-
-            <div className="mt-6 flex justify-center gap-6">
-              <a
-                href={`https://twitter.com/intent/tweet?text=${encodedShareText}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 transition flex items-center"
+          {/* Hasil */}
+          {showResult && (
+            <article className="text-center px-4">
+              <h2
+                className={`text-3xl font-bold mb-3 text-${finalResult.color}-700`}
+                aria-label={`Hasil kepribadian: ${finalResult.title}`}
               >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+                {finalResult.title}
+              </h2>
+              <p className="text-lg mb-3 text-gray-700">{finalResult.description}</p>
+              <blockquote className="italic text-gray-600 mb-6">"{finalResult.quote}"</blockquote>
+
+              <p className="text-sm text-gray-500 mb-6">
+                Terima kasih, <strong>{name}</strong> (umur {age} tahun), sudah mengikuti tes.
+              </p>
+
+              {/* Tombol share */}
+              <div className="flex flex-col sm:flex-row justify-center gap-6 mb-6">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-full shadow-md transition"
+                  aria-label="Bagikan hasil ke WhatsApp"
                 >
-                  <path d="M8.29 20c7.547 0 11.675-6.155 11.675-11.49 0-.175 0-.349-.012-.522A8.18 8.18 0 0 0 22 5.92a8.19 8.19 0 0 1-2.357.631 4.07 4.07 0 0 0 1.804-2.23 8.18 8.18 0 0 1-2.605.981 4.1 4.1 0 0 0-6.993 3.733 11.65 11.65 0 0 1-8.457-4.25 4.04 4.04 0 0 0 1.27 5.467 4.09 4.09 0 0 1-1.858-.506v.05a4.1 4.1 0 0 0 3.293 4.015 4.09 4.09 0 0 1-1.852.07 4.1 4.1 0 0 0 3.834 2.83A8.233 8.233 0 0 1 2 18.13a11.616 11.616 0 0 0 6.29 1.84" />
-                </svg>
-                Bagikan ke Twitter
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20.52 3.48a11.932 11.932 0 0 0-16.87 0 11.93 11.93 0 0 0 0 16.87l-2.03 5.84 6.01-1.58a11.933 11.933 0 0 0 12.89-21.13zm-2.1 13.4c-.3.9-1.4 1.7-2.3 1.9-.6.1-1.3.2-2.4-.4-3.8-2-6.2-5.3-6.4-5.5-.2-.3-1.6-1.9-1.6-3.6 0-1.7 1-2.5 1.3-2.8.3-.3.6-.3.8-.3h.3c.2 0 .5 0 .7.6.2.6.7 2 1 2.7.3.7.5.9.9 1.3.3.3.7.8 1.2.6.3-.1 1-.4 1.4-.5.4-.1.7-.1.9.2.2.3.8 1.1 1 1.3.3.3.5.5.4.8-.1.3-.6.9-.9 1.1z" />
+                  </svg>
+                  WhatsApp
+                </a>
+
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold px-5 py-3 rounded-full shadow-md transition"
+                  aria-label="Bagikan hasil ke Instagram"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7 2C4.238 2 2 4.238 2 7v10c0 2.762 2.238 5 5 5h10c2.762 0 5-2.238 5-5V7c0-2.762-2.238-5-5-5H7zm10 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM7 7a5 5 0 1 0 10 0 5 5 0 0 0-10 0z" />
+                  </svg>
+                  Instagram
+                </a>
+              </div>
+
               <button
-                onClick={() => navigator.clipboard.writeText(testUrl)}
-                className="text-green-600 hover:text-green-800 transition"
+                onClick={restart}
+                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition"
               >
-                📋 Salin Link Tes
+                Coba Lagi
               </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-  </div>
-</main>
-);
+            </article>
+          )}
+        </section>
+      </main>
+    </>
+  );
 }
