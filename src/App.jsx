@@ -16,6 +16,7 @@ import Article from './components/Article';
 import Footer from './components/Footer';
 import Education from './components/Education';
 
+
 function ScrollHandler() {
   const location = useLocation();
 
