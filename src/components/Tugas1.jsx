@@ -5,7 +5,7 @@ export default function Tugas1() {
 
   return (
     <div className="mb-8 p-4 bg-gray-100 rounded-lg">
-      <h3 className="text-2xl font-semibold mb-4">3. Konversi Kalimat ke Logika First Order dan Pembuktian</h3>
+      <h3 className="text-2xl font-semibold mb-4">Konversi Kalimat ke Logika First Order dan Pembuktian</h3>
       <p className="mb-4">
         <strong>Pernyataan yang diberikan:</strong>
       </p>

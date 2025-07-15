@@ -75,8 +75,9 @@ export default function Tugas3Friendly() {
   }, [scores]);
 
   // Text untuk share yang akan dikirim ke WA / IG bio
-  const shareText = encodeURIComponent(
-    `Hai, aku baru saja mengikuti Tes Kepribadian dan hasilku adalah *${finalResult.title}*.\n${finalResult.description}\n\nCoba tes juga di sini!`
+const shareText = encodeURIComponent(
+  `Hai, aku baru saja mengikuti Tes Kepribadian dan hasilku adalah *${finalResult.title}*.\n${finalResult.description}\n\nCoba tes juga di sini!\nhttps://bimawiryadipraja.my.id/tugas/Tugas3`
+
   );
 
   // Link WhatsApp share (bisa ubah nomor atau hapus nomor kalau mau direct chat)
