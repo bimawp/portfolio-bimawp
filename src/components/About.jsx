@@ -9,18 +9,27 @@ const pageVariants = {
 
 export default function About() {
 
-  useEffect(() => {
+useEffect(() => {
+  const handleHashScroll = () => {
     if (window.location.hash === "#about") {
       const el = document.getElementById("about");
       if (el) {
         const NAVBAR_HEIGHT = 88;
-        setTimeout(() => {
-          const y = el.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }, 400);
+
+        // Tunggu sampai semua animasi selesai dan layout stabil
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const y = el.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }, 600); // Sedikit lebih lama agar framer-motion selesai (sesuai duration animasi: 0.6s)
+        });
       }
     }
-  }, []);
+  };
+
+  handleHashScroll();
+}, []);
+
 
   return (
     <>
