@@ -22,5 +22,11 @@
       "destination": "https://bimawiryadipraja.my.id/:path*",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
