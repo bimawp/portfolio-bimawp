@@ -68,6 +68,6 @@ MIT License
 
 ---
 
-Website: [https://www.bimawiryadipraja.my.id](https://www.bimawiryadipraja.my.id)
+Website: [https://portfolio-bimawp.vercel.app](https://portfolio-bimawp.vercel.app)
 
 LinkedIn: [Bima Wiryadi Praja](https://www.linkedin.com/in/bimawiryadipraja)

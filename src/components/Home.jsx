@@ -41,8 +41,8 @@ export default function Home() {
       <SEO
         title="Bima Wiryadi Praja | Portofolio"
         description="Portofolio Bima Wiryadi Praja – Mahasiswa Sistem Informasi dengan minat di pengembangan web dan teknologi."
-        url="https://www.bimawiryadipraja.my.id/"
-        image="https://www.bimawiryadipraja.my.id/profil1.webp"
+        url="https://portfolio-bimawp.vercel.app/"
+        image="https://portfolio-bimawp.vercel.app/profil1.webp"
       />
 
       <Navbar />

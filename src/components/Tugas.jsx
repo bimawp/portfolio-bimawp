@@ -29,8 +29,8 @@ export default function Tugas() {
       <SEO
         title="Daftar Tugas – Bima Wiryadi Praja"
         description="Kumpulan tugas dan latihan logika komputer oleh Bima Wiryadi Praja. Klik untuk melihat detail dan pembahasan setiap tugas."
-        url="https://www.bimawiryadipraja.my.id/tugas"
-        image="https://www.bimawiryadipraja.my.id/profil1.webp"
+        url="https://portfolio-bimawp.vercel.app/tugas"
+        image="https://portfolio-bimawp.vercel.app/profil1.webp"
       />
 
       <h1 className="text-4xl font-bold mb-10 text-center text-gray-800 flex items-center justify-center gap-3">

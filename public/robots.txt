@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bimawiryadipraja.my.id/sitemap.xml
+Sitemap: https://portfolio-bimawp.vercel.app/sitemap.xml

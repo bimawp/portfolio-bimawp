@@ -7,7 +7,7 @@ export default function BimaWP() {
         <title>Bima WP – Bima Wiryadi Praja</title>
         <meta name="description" content="Halaman khusus untuk mengenal lebih dekat Bima Wiryadi Praja, yang dikenal juga sebagai Bima WP. Mahasiswa Sistem Informasi STMIK Mardira Indonesia." />
         <meta name="keywords" content="Bima WP, Bima Wiryadi, Bima Wiryadi Praja, Mahasiswa Sistem Informasi, Web Developer" />
-        <link rel="canonical" href="https://www.bimawiryadipraja.my.id/bima-wp" />
+        <link rel="canonical" href="https://portfolio-bimawp.vercel.app/bima-wp" />
       </Head>
 
       <main className="min-h-screen py-12 px-4 text-center bg-gray-100 text-gray-800">

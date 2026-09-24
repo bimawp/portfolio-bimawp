@@ -2,7 +2,7 @@
 import { Helmet } from "react-helmet";
 
 // Identitas utama website
-const SITE_URL = "https://bimawiryadipraja.my.id";
+const SITE_URL = "https://portfolio-bimawp.vercel.app";
 
 const SITE_NAME = "Bima Wiryadi Praja";
 
@@ -22,8 +22,8 @@ function normalizeUrl(value, removeParameters = false) {
   try {
     const url = new URL(value, `${SITE_URL}/`);
 
-    if (url.hostname === "www.bimawiryadipraja.my.id") {
-      url.hostname = "bimawiryadipraja.my.id";
+    if (url.hostname === "portfolio-bimawp.vercel.app") {
+      url.hostname = "portfolio-bimawp.vercel.app";
     }
 
     if (removeParameters) {

@@ -14,7 +14,7 @@ Dengan Metode Forward Chaining
           name="description"
           content="Tugas 2 berupa file PDF tentang Demokrasi dan HAM. Lihat atau unduh file presentasinya."
         />
-        <link rel="canonical" href="https://bimawiryadipraja.my.id/tugas/Tugas2" />
+        <link rel="canonical" href="https://portfolio-bimawp.vercel.app/tugas/Tugas2" />
       </Helmet>
 
       <h1 className="text-2xl font-bold">Tugas 2</h1>

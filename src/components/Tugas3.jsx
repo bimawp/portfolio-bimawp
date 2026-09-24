@@ -76,7 +76,7 @@ export default function Tugas3Friendly() {
 
   // Text untuk share yang akan dikirim ke WA / IG bio
 const shareText = encodeURIComponent(
-  `Hai, aku baru saja mengikuti Tes Kepribadian dan hasilku adalah *${finalResult.title}*.\n${finalResult.description}\n\nCoba tes juga di sini!\nhttps://bimawiryadipraja.my.id/tugas/Tugas3`
+  `Hai, aku baru saja mengikuti Tes Kepribadian dan hasilku adalah *${finalResult.title}*.\n${finalResult.description}\n\nCoba tes juga di sini!\nhttps://portfolio-bimawp.vercel.app/tugas/Tugas3`
 
   );
 
