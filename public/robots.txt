@@ -1,9 +1,5 @@
-# Blokir domain Vercel agar tidak terindex Google
-User-agent: *
-Disallow:
 
-# Khusus untuk Googlebot agar tidak index versi Vercel
-User-agent: Googlebot
-Disallow: /bima-wp
+User-agent: *
+Allow: /
 
 Sitemap: https://bimawiryadipraja.my.id/sitemap.xml

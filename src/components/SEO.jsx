@@ -1,34 +1,140 @@
-// src/components/SEO.jsx
-import React from 'react';
-import { Helmet } from 'react-helmet';
 
-const SEO = ({
-  title = "Bima Wiryadi Praja - Web Developer",
-  description = "Portofolio online Bima Wiryadi Praja, seorang web developer yang membuat berbagai proyek digital.",
-  image = "https://www.bimawiryadipraja.my.id/profil1.webp",
-  url = "https://www.bimawiryadipraja.my.id/",
-}) => (
-  <Helmet>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    <link rel="canonical" href={url} />
+import { Helmet } from "react-helmet";
 
-    <link
-  rel="preload"
-  as="image"
-  href="/profil1.webp"
-  type="image/webp"
-/>
-  </Helmet>
-);
+// Identitas utama website
+const SITE_URL = "https://bimawiryadipraja.my.id";
 
-export default SEO;
+const SITE_NAME = "Bima Wiryadi Praja";
+
+const DEFAULT_TITLE =
+  "Bima Wiryadi Praja | Frontend & Web Developer";
+
+const DEFAULT_DESCRIPTION =
+  "Portofolio Bima Wiryadi Praja, pengembang web " +
+  "dengan pengalaman React, JavaScript, WebGIS, " +
+  "dan pengembangan sistem informasi.";
+
+const DEFAULT_IMAGE = "/profil1.webp";
+
+// Mengubah URL relatif menjadi absolut
+// dan menyeragamkan domain website.
+function normalizeUrl(value, removeParameters = false) {
+  try {
+    const url = new URL(value, `${SITE_URL}/`);
+
+    if (url.hostname === "www.bimawiryadipraja.my.id") {
+      url.hostname = "bimawiryadipraja.my.id";
+    }
+
+    if (removeParameters) {
+      url.hash = "";
+      url.search = "";
+
+      if (url.pathname !== "/") {
+        url.pathname = url.pathname.replace(/\/+$/, "");
+      }
+    }
+
+    return url.toString();
+  } catch {
+    return `${SITE_URL}/`;
+  }
+}
+
+export default function SEO({
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  image = DEFAULT_IMAGE,
+  url = "/",
+  type = "website",
+  robots = "index, follow"
+}) {
+  const canonicalUrl = normalizeUrl(url, true);
+
+  const imageUrl = normalizeUrl(image);
+
+  return (
+    <Helmet>
+      {/* Identitas halaman */}
+      <title>{title}</title>
+
+      <meta
+        name="description"
+        content={description}
+      />
+
+      <meta
+        name="author"
+        content={SITE_NAME}
+      />
+
+      <meta
+        name="robots"
+        content={robots}
+      />
+
+      {/* Canonical URL */}
+      <link
+        rel="canonical"
+        href={canonicalUrl}
+      />
+
+      {/* Open Graph */}
+      <meta
+        property="og:type"
+        content={type}
+      />
+
+      <meta
+        property="og:site_name"
+        content={SITE_NAME}
+      />
+
+      <meta
+        property="og:locale"
+        content="id_ID"
+      />
+
+      <meta
+        property="og:title"
+        content={title}
+      />
+
+      <meta
+        property="og:description"
+        content={description}
+      />
+
+      <meta
+        property="og:url"
+        content={canonicalUrl}
+      />
+
+      <meta
+        property="og:image"
+        content={imageUrl}
+      />
+
+      {/* Twitter / X */}
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+      />
+
+      <meta
+        name="twitter:title"
+        content={title}
+      />
+
+      <meta
+        name="twitter:description"
+        content={description}
+      />
+
+      <meta
+        name="twitter:image"
+        content={imageUrl}
+      />
+    </Helmet>
+  );
+}

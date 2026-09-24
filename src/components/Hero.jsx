@@ -1,121 +1,824 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+
+import { motion, useReducedMotion } from "framer-motion";
+
+import {
+  ArrowUpRight,
+  ArrowDown,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Code2
+} from "lucide-react";
+
+import SectionLink from "./SectionLink";
 import SEO from "./SEO";
 
-const noiseUrl = "/noise.webp";
+
+// ==========================================
+// KONFIGURASI IDENTITAS
+// ==========================================
+
+const profile = {
+  name: "Bima Wiryadi Praja",
+
+  position: "Frontend & Web Developer",
+
+  location: "Jawa Barat, Indonesia",
+
+  description:
+    "Pengembang web dengan pengalaman membangun " +
+    "aplikasi berbasis React, sistem informasi, " +
+    "dan WebGIS untuk kebutuhan pengguna nyata.",
+
+  photo: "/profil1.webp",
+
+  github: "https://github.com/bimawp",
+
+  linkedin:
+    "https://www.linkedin.com/in/bimawiryadipraja",
+
+  email: "bimawirya90@gmail.com"
+};
+
+
+// ==========================================
+// KOMPONEN HERO
+// ==========================================
 
 export default function Hero() {
-  useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("Ads error:", e);
+  const reduceMotion = useReducedMotion();
+
+  const fadeUp = {
+    initial: reduceMotion
+      ? false
+      : {
+          opacity: 0,
+          y: 24
+        },
+
+    animate: {
+      opacity: 1,
+      y: 0
+    },
+
+    transition: {
+      duration: reduceMotion ? 0 : 0.65,
+      ease: "easeOut"
     }
-  }, []);
+  };
 
   return (
     <>
+      {/* SEO HALAMAN UTAMA */}
+
       <SEO
-        title="Bima Wiryadi Praja | Mahasiswa Sistem Informasi"
-        description="Profil Bima Wiryadi Praja, Mahasiswa Sistem Informasi STMIK Mardira Indonesia yang memiliki minat dalam pengembangan web dan teknologi digital."
-        url="https://www.bimawiryadipraja.my.id"
-        image="https://www.bimawiryadipraja.my.id/profil1.webp"
+        title="Bima Wiryadi Praja | Frontend & Web Developer"
+        description="Portofolio profesional Bima Wiryadi Praja. Pengembangan web berbasis React, JavaScript, WebGIS, dan sistem informasi."
+        url="/"
+        image="/profil1.webp"
       />
 
-      <motion.section
+
+      {/* ==================================
+          HERO SECTION
+      ================================== */}
+
+      <section
         id="hero"
-        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-[#23243a] to-gray-800"
-        aria-label="Profil Utama"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.6 }}
+        aria-labelledby="hero-heading"
+        className="
+          relative
+          isolate
+          flex
+          min-h-screen
+          items-center
+          overflow-hidden
+          bg-[#F8FAFC]
+          px-6
+          pb-20
+          pt-36
+          text-slate-950
+          lg:px-8
+        "
       >
-        {/* Noise background */}
+
+        {/* DEKORASI LATAR */}
+
         <div
-          className="pointer-events-none absolute inset-0 z-40"
-          style={{
-            backgroundImage: `url(${noiseUrl})`,
-            opacity: 0.35,
-            mixBlendMode: "screen",
-            backgroundSize: "300px 300px",
-            backgroundRepeat: "repeat",
-          }}
-        ></div>
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -right-40
+            top-0
+            -z-10
+            h-[600px]
+            w-[600px]
+            rounded-full
+            bg-blue-100/50
+            blur-3xl
+          "
+        />
 
-        {/* Background foto */}
-        <picture>
-          <motion.img
-            src="/profil1.webp"
-            alt="Foto profil Bima Wiryadi Praja"
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.7 }}
-            transition={{ duration: 1 }}
-            className="
-              absolute 
-              left-0 top-[0vh] w-96 h-96
-              md:static
-              md:w-[36rem] md:h-[36rem] 
-              md:ml-auto
-              object-cover object-top grayscale brightness-100 
-              z-10
-            "
-            style={{ mixBlendMode: "lighten" }}
-          />
-        </picture>
 
-        {/* Overlay gelap */}
-        <div className="absolute inset-0 bg-black/60 z-20"></div>
+        {/* KONTEN UTAMA */}
 
-        {/* Overlay gradasi kiri */}
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-white/20 via-white/5 to-transparent z-30 pointer-events-none"></div>
-
-        {/* Konten utama */}
-        <main
-          className="relative z-40 flex flex-col md:flex-row items-center justify-center h-full w-full px-6 sm:px-8 max-w-6xl mx-auto text-white"
-          style={{ gap: "0.25rem" }}
+        <div
+          className="
+            mx-auto
+            grid
+            w-full
+            max-w-7xl
+            items-center
+            gap-14
+            lg:grid-cols-[1.1fr_0.9fr]
+            lg:gap-20
+          "
         >
-          {/* Konten teks */}
-          <div
-            className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left pt-[60vh] md:pt-0"
+
+          {/* ==================================
+              KOLOM KIRI
+          ================================== */}
+
+          <motion.div
+            {...fadeUp}
+            className="
+              relative
+              z-10
+              order-1
+            "
           >
-            <motion.h1
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
+
+            {/* LABEL PROFESIONAL */}
+
+            <div
+              className="
+                mb-8
+                inline-flex
+                items-center
+                gap-3
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                px-4
+                py-2.5
+                shadow-sm
+              "
             >
-              <span className="text-red-600 text-7xl md:text-8xl font-extrabold align-middle">
-                B
+              <span
+                aria-hidden="true"
+                className="
+                  relative
+                  flex
+                  h-2.5
+                  w-2.5
+                "
+              >
+                <span
+                  className="
+                    absolute
+                    inline-flex
+                    h-full
+                    w-full
+                    rounded-full
+                    bg-emerald-400/30
+                  "
+                />
+
+                <span
+                  className="
+                    relative
+                    inline-flex
+                    h-2.5
+                    w-2.5
+                    rounded-full
+                    bg-emerald-500
+                  "
+                />
               </span>
-              ima Wiryadi Praja
-            </motion.h1>
 
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="text-lg md:text-xl leading-relaxed max-w-lg"
+              <span
+                className="
+                  text-xs
+                  font-semibold
+                  tracking-wide
+                  text-slate-700
+                  sm:text-sm
+                "
+              >
+                Open to Work & Collaboration
+              </span>
+            </div>
+
+
+            {/* NAMA */}
+
+            <p
+              className="
+                mb-4
+                text-sm
+                font-bold
+                uppercase
+                tracking-[0.25em]
+                text-blue-600
+                sm:text-base
+              "
             >
-              Mahasiswa Sistem Informasi STMIK Mardira Indonesia dengan minat
-              dalam <strong>pengembangan web</strong> &{" "}
-              <strong>teknologi digital</strong>.
-              <br />
-              Dikenal juga sebagai <strong>Bima WP</strong>.
-            </motion.p>
+              Hello, I'm
+            </p>
 
-            {/* AdSense */}
-            <ins
-              className="adsbygoogle mt-4"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-6652570143802609"
-              data-ad-slot="1234567890"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
+            <h1
+              id="hero-heading"
+              className="
+                max-w-2xl
+                text-[clamp(3.2rem,6vw,5.8rem)]
+                font-extrabold
+                leading-[1.06]
+                tracking-[-0.055em]
+                text-slate-950
+              "
+            >
+              Bima
+              <br />
+              Wiryadi
+              <br />
+
+              <span className="text-blue-600">
+                Praja.
+              </span>
+            </h1>
+
+
+            {/* PROFESI */}
+
+            <div
+              className="
+                mt-8
+                flex
+                items-center
+                gap-4
+              "
+            >
+              <span
+                aria-hidden="true"
+                className="
+                  h-px
+                  w-10
+                  shrink-0
+                  bg-blue-600
+                "
+              />
+
+              <h2
+                className="
+                  text-lg
+                  font-semibold
+                  tracking-tight
+                  text-slate-800
+                  sm:text-xl
+                  xl:text-2xl
+                "
+              >
+                {profile.position}
+              </h2>
+            </div>
+
+
+            {/* DESKRIPSI */}
+
+            <p
+              className="
+                mt-7
+                max-w-xl
+                text-base
+                leading-8
+                text-slate-600
+                sm:text-lg
+              "
+            >
+              {profile.description}
+            </p>
+
+
+            {/* LOKASI */}
+
+            <div
+              className="
+                mt-5
+                flex
+                items-center
+                gap-2
+                text-sm
+                font-medium
+                text-slate-500
+              "
+            >
+              <MapPin
+                size={17}
+                className="text-blue-600"
+                aria-hidden="true"
+              />
+
+              <span>
+                {profile.location}
+              </span>
+            </div>
+
+
+            {/* ==================================
+                TOMBOL UTAMA
+            ================================== */}
+
+            <div
+              className="
+                mt-10
+                flex
+                flex-wrap
+                items-center
+                gap-4
+              "
+            >
+
+              {/* LIHAT PROYEK */}
+
+              <SectionLink
+                section="projects"
+                className="
+                  group
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-xl
+                  bg-blue-600
+                  px-7
+                  py-4
+                  text-sm
+                  font-bold
+                  text-white
+                  shadow-lg
+                  shadow-blue-600/15
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:bg-blue-700
+                  hover:shadow-xl
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-blue-600
+                "
+              >
+                Explore My Work
+
+                <ArrowUpRight
+                  size={19}
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-0.5
+                    group-hover:-translate-y-0.5
+                  "
+                  aria-hidden="true"
+                />
+              </SectionLink>
+
+
+              {/* HUBUNGI SAYA */}
+
+              <SectionLink
+                section="contact"
+                className="
+                  inline-flex
+                  min-h-14
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-slate-300
+                  bg-transparent
+                  px-7
+                  py-4
+                  text-sm
+                  font-bold
+                  text-slate-800
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-slate-900
+                  hover:bg-white
+                  focus-visible:outline
+                  focus-visible:outline-2
+                  focus-visible:outline-offset-4
+                  focus-visible:outline-blue-600
+                "
+              >
+                Let's Connect
+
+                <Mail
+                  size={18}
+                  aria-hidden="true"
+                />
+              </SectionLink>
+
+            </div>
+
+
+            {/* ==================================
+                SOCIAL LINKS
+            ================================== */}
+
+            <div
+              className="
+                mt-12
+                flex
+                flex-wrap
+                items-center
+                gap-x-7
+                gap-y-4
+                border-t
+                border-slate-200
+                pt-7
+              "
+            >
+
+              {/* GITHUB */}
+
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi GitHub Bima"
+                className="
+                  group
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-sm
+                  font-semibold
+                  text-slate-500
+                  transition-colors
+                  hover:text-blue-600
+                "
+              >
+                <Github
+                  size={20}
+                  aria-hidden="true"
+                  className="
+                    transition-transform
+                    group-hover:-translate-y-0.5
+                  "
+                />
+
+                GitHub
+              </a>
+
+
+              {/* LINKEDIN */}
+
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi LinkedIn Bima"
+                className="
+                  group
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-sm
+                  font-semibold
+                  text-slate-500
+                  transition-colors
+                  hover:text-blue-600
+                "
+              >
+                <Linkedin
+                  size={20}
+                  aria-hidden="true"
+                  className="
+                    transition-transform
+                    group-hover:-translate-y-0.5
+                  "
+                />
+
+                LinkedIn
+              </a>
+
+
+              {/* EMAIL */}
+
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Kirim email kepada Bima"
+                className="
+                  group
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-sm
+                  font-semibold
+                  text-slate-500
+                  transition-colors
+                  hover:text-blue-600
+                "
+              >
+                <Mail
+                  size={20}
+                  aria-hidden="true"
+                  className="
+                    transition-transform
+                    group-hover:-translate-y-0.5
+                  "
+                />
+
+                Email
+              </a>
+
+            </div>
+          </motion.div>
+
+
+          {/* ==================================
+              KOLOM KANAN - FOTO PROFIL
+          ================================== */}
+
+          <motion.div
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    x: 35
+                  }
+            }
+            animate={{
+              opacity: 1,
+              x: 0
+            }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.8,
+              delay: reduceMotion ? 0 : 0.15
+            }}
+            className="
+              relative
+              order-2
+              mx-auto
+              w-full
+              max-w-[460px]
+              lg:max-w-none
+            "
+          >
+
+            {/* BINGKAI FOTO */}
+
+            <div
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                bg-slate-950
+                p-3
+                shadow-2xl
+                shadow-slate-900/10
+                sm:p-4
+              "
+            >
+
+              {/* AKSEN GEOMETRIS */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  -right-24
+                  -top-24
+                  h-72
+                  w-72
+                  rounded-full
+                  bg-blue-600/30
+                  blur-3xl
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  bottom-0
+                  left-0
+                  h-48
+                  w-48
+                  rounded-full
+                  bg-blue-500/10
+                  blur-3xl
+                "
+              />
+
+
+              {/* FOTO */}
+
+              <div
+                className="
+                  relative
+                  overflow-hidden
+                  rounded-[1.5rem]
+                  bg-slate-800
+                "
+              >
+                <img
+                  src={profile.photo}
+                  alt="Foto profil Bima Wiryadi Praja"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="
+                    aspect-[4/5]
+                    w-full
+                    object-cover
+                    object-top
+                  "
+                />
+
+                {/* GRADIENT BAGIAN BAWAH */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-x-0
+                    bottom-0
+                    h-40
+                    bg-gradient-to-t
+                    from-slate-950/40
+                    to-transparent
+                  "
+                />
+              </div>
+
+            </div>
+
+
+            {/* ==================================
+                FLOATING EXPERIENCE CARD
+            ================================== */}
+
+            <motion.div
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 20
+                    }
+              }
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.6,
+                delay: reduceMotion ? 0 : 0.65
+              }}
+              className="
+                relative
+                z-20
+                mx-auto
+                -mt-12
+                w-[calc(100%-2rem)]
+                max-w-sm
+                rounded-2xl
+                border
+                border-slate-200
+                bg-white
+                p-5
+                shadow-xl
+                shadow-slate-900/10
+                sm:-ml-8
+                sm:w-full
+              "
+            >
+              <div
+                className="
+                  flex
+                  items-start
+                  gap-4
+                "
+              >
+
+                {/* ICON */}
+
+                <div
+                  className="
+                    flex
+                    h-12
+                    w-12
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    bg-blue-50
+                    text-blue-600
+                  "
+                >
+                  <Code2
+                    size={23}
+                    aria-hidden="true"
+                  />
+                </div>
+
+
+                {/* INFORMASI */}
+
+                <div>
+                  <p
+                    className="
+                      text-[11px]
+                      font-bold
+                      uppercase
+                      tracking-[0.15em]
+                      text-blue-600
+                    "
+                  >
+                    Experience Highlight
+                  </p>
+
+                  <h3
+                    className="
+                      mt-1
+                      text-sm
+                      font-extrabold
+                      text-slate-900
+                      sm:text-base
+                    "
+                  >
+                    WebGIS Development
+                  </h3>
+
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      leading-relaxed
+                      text-slate-500
+                      sm:text-sm
+                    "
+                  >
+                    Dinas Pendidikan Kabupaten Garut
+                  </p>
+                </div>
+
+              </div>
+            </motion.div>
+
+          </motion.div>
+
+        </div>
+
+
+        {/* SCROLL INDICATOR */}
+
+        <div
+          className="
+            absolute
+            bottom-8
+            left-1/2
+            hidden
+            -translate-x-1/2
+            xl:flex
+          "
+        >
+          <SectionLink
+            section="about"
+            aria-label="Gulir menuju bagian Tentang Saya"
+            className="
+              flex
+              flex-col
+              items-center
+              gap-2
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[0.2em]
+              text-slate-400
+              transition-colors
+              hover:text-blue-600
+            "
+          >
+            Scroll to Explore
+
+            <ArrowDown
+              size={17}
+              aria-hidden="true"
             />
-          </div>
-        </main>
-      </motion.section>
+          </SectionLink>
+        </div>
+
+      </section>
     </>
   );
 }

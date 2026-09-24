@@ -2,10 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tambahkan gaya global jika diperlukan */
+/* Pengaturan font global */
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+/* Pengaturan scroll */
 html {
   scroll-behavior: smooth;
+
+  /* Tinggi navbar 60px dan jarak tambahan 16px */
+  scroll-padding-top: 76px;
+}
+
+/* Aksesibilitas animasi */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* ==================================
+   BIMA WP — GLOBAL DESIGN SYSTEM
+   ================================== */
+
+:root {
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: inherit;
+}
+
+::selection {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

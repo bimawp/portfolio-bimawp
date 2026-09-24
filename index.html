@@ -1,36 +1,182 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bima Wiryadi Praja</title>
-  <meta name="description" content="Portofolio pribadi Bima Wiryadi Praja, mahasiswa Sistem Informasi dengan keahlian dalam pengembangan web, teknologi, dan desain antarmuka." />
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Bima Wiryadi Praja - Portfolio" />
-  <meta property="og:description" content="Lihat projek, blog, dan informasi tentang Bima Wiryadi Praja, mahasiswa Sistem Informasi STMIK Mardira Indonesia." />
-  <meta property="og:image" content="/profil1.webp" />
-  <meta property="og:url" content="https://www.bimawiryadipraja.my.id/" />
-  <meta property="og:type" content="website" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bima Wiryadi Praja - Portfolio" />
-  <meta name="twitter:description" content="Profil dan karya Bima Wiryadi Praja." />
-  <meta name="twitter:image" content="/profil1.webp" />
+    <meta
+      name="theme-color"
+      content="#020617"
+    />
 
-  <!-- Keywords & Author -->
-  <meta name="keywords" content="Bima Wiryadi Praja, Mahasiswa Sistem Informasi, Portofolio Web, Web Developer Indonesia, STMIK Mardira" />
-  <meta name="author" content="Bima Wiryadi Praja" />
+    <!-- Identitas utama -->
+    <title>
+      Bima Wiryadi Praja | Frontend & Web Developer
+    </title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" />
+    <meta
+      data-react-helmet="true"
+      name="description"
+      content="Portofolio Bima Wiryadi Praja, pengembang web dengan pengalaman React, JavaScript, WebGIS, dan pengembangan sistem informasi."
+    />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.bimawiryadipraja.my.id/" />
-</head>
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <meta
+      name="author"
+      content="Bima Wiryadi Praja"
+    />
+
+    <meta
+      data-react-helmet="true"
+      name="robots"
+      content="index, follow"
+    />
+
+    <!-- Google Search Console -->
+    <meta
+      name="google-site-verification"
+      content="CYNKrl_0QdYsaFMuRlW97AUWgN8VD22HSURJlVjBFIg"
+    />
+
+    <!-- Canonical -->
+    <link
+      data-react-helmet="true"
+      rel="canonical"
+      href="https://bimawiryadipraja.my.id/"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      data-react-helmet="true"
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:site_name"
+      content="Bima Wiryadi Praja"
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:locale"
+      content="id_ID"
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:title"
+      content="Bima Wiryadi Praja | Frontend & Web Developer"
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:description"
+      content="Portofolio profesional Bima Wiryadi Praja. Jelajahi pengalaman pengembangan web, WebGIS, dan proyek sistem informasi."
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:url"
+      content="https://bimawiryadipraja.my.id/"
+    />
+
+    <meta
+      data-react-helmet="true"
+      property="og:image"
+      content="https://bimawiryadipraja.my.id/profil1.webp"
+    />
+
+    <!-- Twitter / X -->
+    <meta
+      data-react-helmet="true"
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      data-react-helmet="true"
+      name="twitter:title"
+      content="Bima Wiryadi Praja | Web Developer"
+    />
+
+    <meta
+      data-react-helmet="true"
+      name="twitter:description"
+      content="Pengembangan web, WebGIS, dan sistem informasi."
+    />
+
+    <meta
+      data-react-helmet="true"
+      name="twitter:image"
+      content="https://bimawiryadipraja.my.id/profil1.webp"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      sizes="any"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="/apple-touch-icon.png"
+    />
+
+    <link
+      rel="manifest"
+      href="/manifest.json"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bima Wiryadi Praja",
+        "alternateName": "Bima WP",
+        "url": "https://bimawiryadipraja.my.id/",
+        "image": "https://bimawiryadipraja.my.id/profil1.webp",
+        "jobTitle": "Web Developer",
+        "description": "Pengembang web dengan pengalaman pengembangan aplikasi React, WebGIS, dan sistem informasi.",
+        "sameAs": [
+          "https://github.com/bimawp",
+          "https://www.linkedin.com/in/bimawiryadipraja"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <noscript>
+      Aktifkan JavaScript untuk melihat portofolio ini.
+    </noscript>
+
+    <div id="root"></div>
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+  </body>
 </html>
